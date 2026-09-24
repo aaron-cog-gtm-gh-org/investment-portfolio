@@ -222,12 +222,13 @@ describe('SearchResultComponent', () => {
     })
 
     describe('template rendering', () => {
-        it('should hide the search results section when no search value is set', () => {
+        it('should render the all-investments heading when no search value is set', () => {
             component.searchValue = undefined as any
             component.emptyState = false
             fixture.detectChanges()
-            const results = (fixture.nativeElement as HTMLElement).querySelector('.search-results')
-            expect(results?.classList.contains('search-results-hidden')).toBe(true)
+            const compiled: HTMLElement = fixture.nativeElement
+            expect(compiled.querySelector('.investments-table')).toBeTruthy()
+            expect(compiled.querySelector('#searchValue')).toBeNull()
         })
 
         it('should render the search results heading with the current search value', () => {
@@ -244,14 +245,14 @@ describe('SearchResultComponent', () => {
             expect(compiled.querySelector('.emptyState')).toBeTruthy()
             expect(compiled.querySelector('img.noResult')).toBeTruthy()
             expect(compiled.querySelectorAll('.noResultText').length).toBeGreaterThanOrEqual(1)
-            expect(compiled.querySelector('.products-grid')).toBeNull()
+            expect(compiled.querySelector('.investments-table')).toBeNull()
         })
 
-        it('should render the products grid and no empty state when emptyState is false', () => {
+        it('should render the investments table and no empty state when emptyState is false', () => {
             component.emptyState = false
             fixture.detectChanges()
             const compiled: HTMLElement = fixture.nativeElement
-            expect(compiled.querySelector('.products-grid')).toBeTruthy()
+            expect(compiled.querySelector('.investments-table')).toBeTruthy()
             expect(compiled.querySelector('.emptyState')).toBeNull()
         })
 
@@ -330,9 +331,9 @@ describe('SearchResultComponent', () => {
             const originalRO = globalThis.ResizeObserver
             globalThis.ResizeObserver = FakeRO as any
 
-            // Ensure the products-grid element exists so observe is called
+            // Ensure the investments table element exists so observe is called
             const grid = document.createElement('div')
-            grid.className = 'products-grid'
+            grid.className = 'investments-table'
             grid.style.gridTemplateColumns = 'auto auto auto'
             ;(component as any).elRef = { nativeElement: { querySelector: () => grid } }
 

@@ -5,6 +5,54 @@
 
 @let product = item();
 
+@if (layout() === 'row') {
+  <div class="investment-row" role="row">
+    <span class="cell symbol" role="cell">{{ symbol(product.name) }}</span>
+    <span class="cell investment" role="cell">
+      <button
+        type="button"
+        class="investment-name"
+        matTooltipTouchGestures="off"
+        matTooltip="Click for more information"
+        matTooltipPosition="above"
+        aria-label="Click for more information about the product"
+        (click)="showDetail(product)"
+      >
+        {{ product.name }}
+      </button>
+      <span class="investment-description" [innerHTML]="product.description"></span>
+    </span>
+    <span class="cell units" role="cell">
+      @if (product?.quantity > 0) {
+        {{ product.quantity }}
+      } @else if (product?.quantity <= 0) {
+        {{ "LABEL_SOLD_OUT" | translate }}
+      } @else {
+        &mdash;
+      }
+    </span>
+    <span class="cell price" role="cell">
+      @if (!isDeluxe() || product.price === product.deluxePrice) {
+        {{ product.price }}&curren;
+      } @else {
+        <s class="expired">{{ product.price }}</s>
+        {{ product.deluxePrice }}&curren;
+      }
+    </span>
+    <span class="cell action" role="cell">
+      <button
+        (click)="addToBasket(product.id)"
+        aria-label="{{ 'ADD_BASKET' | translate }}"
+        class="btn-basket"
+        color="primary"
+        mat-button
+      >
+        <mat-icon class="icon-basket">add_shopping_cart</mat-icon>
+        {{ "ADD_BASKET" | translate }}
+      </button>
+    </span>
+  </div>
+} @else {
 <mat-card appearance="outlined" class="mat-card">
   <article class="product">
     @if (product?.quantity <= 5 && product?.quantity > 0) {
@@ -70,3 +118,4 @@
     </footer>
   </article>
 </mat-card>
+}

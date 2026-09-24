@@ -36,19 +36,30 @@
     <app-accounts-panel></app-accounts-panel>
   </div>
 
-  <div class="search-results" [class.search-results-hidden]="!searchValue">
+  <div class="search-results">
     <div class="heading mat-headline-small">
       <div>
-        <span>{{ "TITLE_SEARCH_RESULTS" | translate }} - </span>
-        <span id="searchValue" [innerHTML]="searchValue"></span>
+        @if (searchValue) {
+          <span>{{ "TITLE_SEARCH_RESULTS" | translate }} - </span>
+          <span id="searchValue" [innerHTML]="searchValue"></span>
+        } @else {
+          <span>{{ "TITLE_ALL_PRODUCTS" | translate }}</span>
+        }
       </div>
       <div id="search-result-heading"></div>
     </div>
 
     @if (!emptyState) {
-      <div class="products-grid">
+      <div class="investments-table" role="table" [attr.aria-label]="'TITLE_ALL_PRODUCTS' | translate">
+        <div class="table-head" role="row">
+          <span role="columnheader">Symbol</span>
+          <span role="columnheader">{{ "LABEL_PRODUCT" | translate }}</span>
+          <span role="columnheader">{{ "LABEL_QUANTITY" | translate }}</span>
+          <span role="columnheader">{{ "LABEL_PRICE" | translate }}</span>
+          <span role="columnheader"><span class="visually-hidden">Action</span></span>
+        </div>
         @for (item of gridDataSource | async; track item.id) {
-          <app-product class="product" [item]="item" [isLoggedIn]="isLoggedIn()" [isDeluxe]="isDeluxe()"></app-product>
+          <app-product layout="row" [item]="item" [isLoggedIn]="isLoggedIn()" [isDeluxe]="isDeluxe()"></app-product>
         }
       </div>
     } @else {

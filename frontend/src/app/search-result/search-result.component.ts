@@ -165,7 +165,7 @@ export class SearchResultComponent implements OnDestroy, AfterViewInit {
   // vuln-code-snippet end localXssChallenge xssBonusChallenge
 
   private setupResponsivePageSize () {
-    const grid = this.elRef.nativeElement.querySelector('.products-grid')
+    const grid = this.elRef.nativeElement.querySelector('.investments-table')
     if (!grid) return
     this.resizeObserver = new ResizeObserver(() => {
       this.ngZone.run(() => {
