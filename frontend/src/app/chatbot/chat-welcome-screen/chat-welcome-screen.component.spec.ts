@@ -56,7 +56,7 @@ describe('ChatWelcomeScreenComponent', () => {
 
     it('should render the welcome title', () => {
         const title = fixture.nativeElement.querySelector('.welcome-title')
-        expect(title.textContent).toContain('Juicy')
+        expect(title.textContent).toContain('Ava')
     })
 
     it('should render the welcome subtitle', () => {
@@ -64,7 +64,7 @@ describe('ChatWelcomeScreenComponent', () => {
         expect(subtitle.textContent).toContain('CHATBOT_SUBTITLE')
     })
 
-    it('should render the JuicyBot avatar', () => {
+    it('should render the advisor bot avatar', () => {
         const avatar = fixture.nativeElement.querySelector('.welcome-avatar')
         expect(avatar).toBeTruthy()
         expect(avatar.getAttribute('alt')).toBe('CHATBOT_AVATAR_ALT')

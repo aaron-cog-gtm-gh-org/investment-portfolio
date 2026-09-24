@@ -1,6 +1,6 @@
 application:
-  logo: JuiceShopCTF_Logo.png
-  favicon: favicon_ctf.ico
+  logo: RBCPortfolio_Logo.png
+  favicon: favicon_rbc.ico
   showVersionNumber: false
   showGitHubLinks: false
   localBackupEnabled: false

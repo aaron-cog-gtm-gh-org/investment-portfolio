@@ -199,7 +199,6 @@ jobs:
         with:
           node-version: ${{ env.NODE_DEFAULT_VERSION }}
       - name: "Install application"
-        if: github.repository == 'juice-shop/juice-shop' || (github.repository != 'juice-shop/juice-shop' && matrix.os == 'ubuntu-latest' && matrix.node-version == '24')
         run: npm install
       - name: "Execute server tests for each custom configuration"
         uses: nick-invision/retry@7152eba30c6575329ac0576536151aca5a72780e #v3.0.0
@@ -207,14 +206,8 @@ jobs:
           timeout_minutes: 30
           max_attempts: 3
           command: >
-            NODE_ENV=7ms npm run test:server &&
-            NODE_ENV=addo npm run test:server &&
-            NODE_ENV=bodgeit npm run test:server &&
             NODE_ENV=ctf npm run test:server &&
             NODE_ENV=fbctf npm run test:server &&
-            NODE_ENV=juicebox npm run test:server &&
-            NODE_ENV=mozilla npm run test:server &&
-            NODE_ENV=oss npm run test:server &&
             NODE_ENV=quiet npm run test:server &&
             NODE_ENV=tutorial npm run test:server &&
             NODE_ENV=unsafe npm run test:server

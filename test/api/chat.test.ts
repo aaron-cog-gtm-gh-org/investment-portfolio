@@ -155,7 +155,7 @@ void describe('/rest/chat', { timeout: 120000 }, () => {
     let parsedBody: any
     onLlmRequest = (_req, body, res) => {
       parsedBody = JSON.parse(body)
-      sendSSE(res, [contentChunk('I am Juicy!'), finishChunk()])
+      sendSSE(res, [contentChunk('I am Ava!'), finishChunk()])
     }
 
     const res = await request(app)
@@ -165,7 +165,7 @@ void describe('/rest/chat', { timeout: 120000 }, () => {
 
     assert.equal(res.status, 200)
     assert.equal(parsedBody.messages[0].role, 'system')
-    assert.ok(parsedBody.messages[0].content.includes('Juicy'))
+    assert.ok(parsedBody.messages[0].content.includes('Ava the Virtual Advisor'))
     assert.equal(parsedBody.messages[1].role, 'user')
     assert.equal(parsedBody.messages[1].content, 'What is your name?')
   })
@@ -197,7 +197,7 @@ void describe('/rest/chat', { timeout: 120000 }, () => {
       callCount++
       if (callCount === 1) {
         sendSSE(res, [
-          toolCallChunk('call_abc', 'searchProducts', '{"query":"apple"}'),
+          toolCallChunk('call_abc', 'searchProducts', '{"query":"equity index"}'),
           finishChunk('tool_calls')
         ])
       } else {
@@ -205,9 +205,9 @@ void describe('/rest/chat', { timeout: 120000 }, () => {
         const toolMsg = parsed.messages.find((m: { role: string }) => m.role === 'tool')
         assert.ok(toolMsg)
         assert.equal(toolMsg.tool_call_id, 'call_abc')
-        assert.ok(toolMsg.content.includes('Apple Juice'))
+        assert.ok(toolMsg.content.includes('Canadian Equity Index Fund'))
         sendSSE(res, [
-          contentChunk('We have Apple Juice (1000ml) for $1.99!'),
+          contentChunk('We have Canadian Equity Index Fund (CDEQ) for $1.99!'),
           finishChunk()
         ])
       }
@@ -216,10 +216,10 @@ void describe('/rest/chat', { timeout: 120000 }, () => {
     const res = await request(app)
       .post('/rest/chat')
       .set({ 'content-type': 'application/json' })
-      .send({ messages: [{ role: 'user', content: 'Do you have apple juice?' }] })
+      .send({ messages: [{ role: 'user', content: 'Do you have an equity index fund?' }] })
 
     assert.equal(res.status, 200)
-    assert.ok(res.text.includes('Apple Juice'))
+    assert.ok(res.text.includes('Canadian Equity Index Fund'))
     assert.ok(res.text.includes('data: [DONE]'))
   })
 
