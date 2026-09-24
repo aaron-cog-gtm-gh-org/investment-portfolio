@@ -25,8 +25,8 @@ export class WelcomeBannerComponent implements OnInit {
   private readonly configurationService = inject(ConfigurationService)
   private readonly cookieService = inject(CookieService)
 
-  public title = 'Welcome to OWASP Juice Shop'
-  public message = "<p>Being a web application with a vast number of intended security vulnerabilities, the <strong>OWASP Juice Shop</strong> is supposed to be the opposite of a best practice or template application for web developers: It is an awareness, training, demonstration and exercise tool for security risks in modern web applications. The <strong>OWASP Juice Shop</strong> is an open-source project hosted by the non-profit <a href='https://owasp.org' target='_blank'>Open Worldwide Application Security Project (OWASP)</a> and is developed and maintained by volunteers. Check out the link below for more information and documentation on the project.</p><h1><a href='https://owasp-juice.shop' target='_blank'>https://owasp-juice.shop</a></h1>"
+  public title = 'Welcome to your Portfolio Overview'
+  public message = "<p>Track your combined balance, asset mix and holdings across your <strong>RRSP</strong>, <strong>TFSA</strong> and <strong>Cash</strong> accounts, then build a <strong>Trade Ticket</strong> to place your next order.</p><p><em>Demo interface with mock data. Not affiliated with Royal Bank of Canada. Balances, quotes and holdings shown in this application are fictional and must not be used for investment decisions.</em></p>"
   public showHackingInstructor = true
   public showDismissBtn = true
 

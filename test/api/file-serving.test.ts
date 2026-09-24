@@ -166,7 +166,7 @@ void describe('Hidden URL', () => {
       .get('/the/devs/are/so/funny/they/hid/an/easter/egg/within/the/easter/egg')
     assert.equal(res.status, 200)
     assert.ok(res.headers['content-type']?.includes('text/html'))
-    assert.ok(res.text.includes('<title>Welcome to Planet Orangeuze</title>'))
+    assert.ok(res.text.includes('<title>Welcome to Planet Maplevest</title>'))
   })
 
   void it('GET the premium content by visiting the AES decrypted URL', async () => {

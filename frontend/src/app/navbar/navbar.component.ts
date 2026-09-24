@@ -108,7 +108,7 @@ export class NavbarComponent implements OnInit {
   public version = ''
   public applicationName = 'OWASP Juice Shop'
   public showGitHubLink = true
-  public logoSrc = 'assets/public/images/JuiceShop_Logo.png'
+  public logoSrc = 'assets/public/images/RBCPortfolio_Logo.png'
   public scoreBoardVisible = false
   public shortKeyLang = 'placeholder'
   public itemTotal = 0
