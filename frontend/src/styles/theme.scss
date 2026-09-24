@@ -127,6 +127,27 @@ $lime-green-theme: mat.define-theme($lime-green-config);
   background-color: var(--mat-sys-surface);
 }
 
+$rbc-blue-gold-config: (
+  color: (
+    theme-type: light,
+    primary: mat.$blue-palette,
+    tertiary: mat.$yellow-palette,
+  )
+);
+$rbc-blue-gold-theme: mat.define-theme($rbc-blue-gold-config);
+
+.rbc-blue-gold-theme {
+  @include mat.theme($rbc-blue-gold-config);
+
+  --mat-sys-surface: #eef1f5;
+  --mat-sys-background: #eef1f5;
+  --mat-sys-on-surface: #1a1a1a;
+  --mat-sys-on-background: #1a1a1a;
+
+  color: var(--mat-sys-on-surface);
+  background-color: var(--mat-sys-surface);
+}
+
 $neon-fire-config: (
   color: (
     theme-type: dark,

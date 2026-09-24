@@ -60,6 +60,13 @@ export const themes = {
     primLight: '#ddee48',
     primDark: '#97a621'
   },
+  'rbc-blue-gold': {
+    bgColor: '#F5F7FA',
+    textColor: '#1A1A1A',
+    navColor: '#005DAA',
+    primLight: '#1E6FBA',
+    primDark: '#003168'
+  },
   'neon-fire': {
     bgColor: '#000000',
     textColor: '#ff2d55',

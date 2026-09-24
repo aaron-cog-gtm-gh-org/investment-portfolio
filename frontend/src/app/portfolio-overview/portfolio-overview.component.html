@@ -1,0 +1,75 @@
+<!--
+  ~ Copyright (c) 2014-2026 Bjoern Kimminich & the OWASP Juice Shop contributors.
+  ~ SPDX-License-Identifier: MIT
+-->
+
+<h1 class="page-title">Portfolio Overview</h1>
+<p class="page-subtitle">
+  <span class="currency">Currency in CAD</span>
+  <span class="dot">&middot;</span>
+  <span>Balances {{ asOf }}</span>
+</p>
+
+<section class="overview" aria-label="Portfolio overview with mock balances">
+  <div class="headline">
+    <div class="balance-primary">
+      <span class="label">Combined Balance</span>
+      <span class="amount">{{ combinedBalance | number: '1.2-2' }}</span>
+      <span class="sub">
+        Cash Balance: {{ buyingPower | number: '1.2-2' }}
+      </span>
+    </div>
+
+    <dl class="metrics">
+      <div class="metric">
+        <dt>Unrealized Gains/Losses</dt>
+        <dd class="figure" [class.up]="unrealizedGain >= 0" [class.down]="unrealizedGain < 0">
+          {{ unrealizedGain >= 0 ? '+' : '' }}{{ unrealizedGain | number: '1.2-2' }}
+        </dd>
+        <dd class="figure-sub" [class.up]="unrealizedGain >= 0" [class.down]="unrealizedGain < 0">
+          ({{ unrealizedGainPercentage | number: '1.2-2' }}%)
+        </dd>
+      </div>
+      <div class="metric">
+        <dt>Book Cost</dt>
+        <dd class="figure">{{ bookCost | number: '1.2-2' }}</dd>
+        <dd class="figure-sub">
+          Today {{ dayChange >= 0 ? '+' : '' }}{{ dayChange | number: '1.2-2' }}
+          ({{ dayChangePercentage | number: '1.2-2' }}%)
+        </dd>
+      </div>
+    </dl>
+  </div>
+
+  <div class="asset-mix">
+    <svg viewBox="0 0 160 160" role="img" aria-label="Asset mix donut chart">
+      <g transform="rotate(-90 80 80)">
+        <circle cx="80" cy="80" r="70" class="donut-track"></circle>
+        @for (slice of assetMix; track slice.label) {
+          <circle
+            cx="80"
+            cy="80"
+            r="70"
+            class="donut-slice"
+            [attr.stroke]="slice.color"
+            [attr.stroke-dasharray]="slice.dashArray"
+            [attr.stroke-dashoffset]="slice.dashOffset"
+          ></circle>
+        }
+      </g>
+    </svg>
+
+    <div class="mix-details">
+      <h2>Asset Mix</h2>
+      <ul class="legend">
+        @for (slice of assetMix; track slice.label) {
+          <li>
+            <span class="swatch" [style.background]="slice.color"></span>
+            <span class="legend-label">{{ slice.label }}</span>
+            <span class="legend-value">{{ slice.percentage }}%</span>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

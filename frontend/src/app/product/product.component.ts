@@ -35,6 +35,17 @@ export class ProductComponent {
   item = input.required<ProductTableEntry>()
   isLoggedIn = input.required<boolean>()
   isDeluxe = input.required<boolean>()
+  layout = input<'card' | 'row'>('card')
+
+  symbol(name?: string) {
+    const ticker = (name ?? '').match(/\(([A-Z0-9]{2,5})\)/)
+    if (ticker) {
+      return ticker[1]
+    }
+    const words = (name ?? '').replace(/[^\w\s]/g, '').split(/\s+/).filter(Boolean)
+    const letters = words.length > 1 ? words.map((word) => word[0]).join('') : words[0] ?? ''
+    return letters.slice(0, 4).toUpperCase()
+  }
 
   addToBasket(id?: number) {
     if (id == null) {

@@ -317,4 +317,38 @@ describe('ProductComponent', () => {
             expect(compiled.querySelector('aside.ribbon-sold')).toBeTruthy()
         })
     })
+
+    describe('row layout', () => {
+        beforeEach(() => {
+            fixture.componentRef.setInput('layout', 'row')
+            fixture.detectChanges()
+        })
+
+        it('should render a table row with a derived symbol instead of the product card', () => {
+            const compiled: HTMLElement = fixture.nativeElement
+            expect(compiled.querySelector('.investment-row')).toBeTruthy()
+            expect(compiled.querySelector('mat-card')).toBeNull()
+            expect(compiled.querySelector('.symbol')?.textContent?.trim()).toBe(component.symbol(testProduct.name))
+        })
+
+        it('should open the product details dialog from the investment name', () => {
+            const spy = vi.spyOn(component, 'showDetail')
+            const name = (fixture.nativeElement as HTMLElement).querySelector('button.investment-name') as HTMLButtonElement
+            name.click()
+            expect(spy).toHaveBeenCalled()
+        })
+
+        it('should add the product to the basket from the row action', () => {
+            const spy = vi.spyOn(component, 'addToBasket')
+            const button = (fixture.nativeElement as HTMLElement).querySelector('.investment-row button.btn-basket') as HTMLButtonElement
+            button.click()
+            expect(spy).toHaveBeenCalledWith(testProduct.id)
+        })
+
+        it('should derive symbols from initials for multi-word names and from the single word otherwise', () => {
+            expect(component.symbol('Balanced Growth Index Fund Series A')).toBe('BGIF')
+            expect(component.symbol('Infrastructure')).toBe('INFR')
+            expect(component.symbol('Aggregate Bond Index Fund (AGGB)')).toBe('AGGB')
+        })
+    })
 })

@@ -1,0 +1,78 @@
+/*!
+ * Copyright (c) 2014-2026 Bjoern Kimminich & the OWASP Juice Shop contributors.
+ * SPDX-License-Identifier: MIT
+ */
+
+@use '../../styles/variables' as *;
+
+.ticker-strip {
+  display: flex;
+  align-items: center;
+  gap: $space-m;
+  padding: $space-xs 0;
+  margin-bottom: $space-m;
+  border-bottom: 1px solid rgb(0 0 0 / 9%);
+  overflow: hidden;
+}
+
+.ticker-tag {
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--rbc-blue, #005daa);
+}
+
+.ticker-track {
+  display: flex;
+  flex: 1 1 auto;
+  gap: $space-l;
+  overflow-x: auto;
+  scrollbar-width: none;
+  white-space: nowrap;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.quote {
+  display: inline-flex;
+  align-items: baseline;
+  gap: $space-2xs;
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+}
+
+.symbol {
+  font-weight: 600;
+  color: var(--rbc-blue, #005daa);
+}
+
+.last {
+  opacity: 0.75;
+}
+
+.change {
+  font-weight: 600;
+
+  &.up {
+    color: var(--rbc-gain, #0f7b4f);
+  }
+
+  &.down {
+    color: var(--rbc-loss, #c0392b);
+  }
+}
+
+.ticker-note {
+  flex: 0 0 auto;
+  font-size: 11px;
+  opacity: 0.55;
+}
+
+@media (max-width: 580px) {
+  .ticker-note {
+    display: none;
+  }
+}

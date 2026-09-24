@@ -4,54 +4,94 @@
 -->
 
 <main class="container">
-  <div class="heading mat-elevation-z6 mat-headline-small">
-    @if (searchValue) {
-      <div>
-        <span>{{ "TITLE_SEARCH_RESULTS" | translate }} - </span>
-        <span id="searchValue" [innerHTML]="searchValue"></span>
-      </div>
-    } @else {
-      <div>{{ "TITLE_ALL_PRODUCTS" | translate }}</div>
-    }
-    <div id="search-result-heading"></div>
+  <section class="hero" aria-label="Quick actions">
+    <div class="hero-greeting">
+      <span class="hero-hello">Hello, investor</span>
+      <span class="hero-tier">Self-directed &middot; Demo profile</span>
+    </div>
+    <nav class="hero-actions" aria-label="Quick actions">
+      <a routerLink="/basket">
+        <mat-icon>swap_horiz</mat-icon>
+        Transfer funds
+      </a>
+      <a routerLink="/search">
+        <mat-icon>add_chart</mat-icon>
+        Place an order
+      </a>
+      <a routerLink="/order-history">
+        <mat-icon>fact_check</mat-icon>
+        Order status
+      </a>
+      <a routerLink="/score-board">
+        <mat-icon>dashboard</mat-icon>
+        Trading dashboard
+      </a>
+    </nav>
+  </section>
+
+  <app-market-ticker></app-market-ticker>
+
+  <div class="dashboard-grid">
+    <app-portfolio-overview></app-portfolio-overview>
+    <app-accounts-panel></app-accounts-panel>
   </div>
 
-  @if (!emptyState) {
-    <div class="products-grid">
-      @for (item of gridDataSource | async; track item.id) {
-          <app-product class="product" [item]="item" [isLoggedIn]="isLoggedIn()" [isDeluxe]="isDeluxe()"></app-product>
+  <div class="search-results">
+    <div class="heading mat-headline-small">
+      <div>
+        @if (searchValue) {
+          <span>{{ "TITLE_SEARCH_RESULTS" | translate }} - </span>
+          <span id="searchValue" [innerHTML]="searchValue"></span>
+        } @else {
+          <span>{{ "TITLE_ALL_PRODUCTS" | translate }}</span>
         }
-    </div>
-  } @else {
-    <mat-card appearance="outlined" class="mat-elevation-z6 emptyState">
-      <div class="mdc-card">
-        <img
-          alt=" No results found"
-          class="img-responsive noResult"
-          src="assets/public/images/products/no-results.png"
-        />
-        <mat-card-title>
-          <span class="noResultText">
-            {{ "NO_SEARCH_RESULT" | translate }}
-          </span>
-        </mat-card-title>
-        <mat-card-content>
-          <span class="noResultText">
-            {{ "EMPTY_SEARCH_RESULT" | translate }}
-          </span>
-        </mat-card-content>
       </div>
-    </mat-card>
-  }
+      <div id="search-result-heading"></div>
+    </div>
 
+    @if (!emptyState) {
+      <div class="investments-table" role="table" [attr.aria-label]="'TITLE_ALL_PRODUCTS' | translate">
+        <div class="table-head" role="row">
+          <span role="columnheader">Symbol</span>
+          <span role="columnheader">{{ "LABEL_PRODUCT" | translate }}</span>
+          <span role="columnheader">{{ "LABEL_QUANTITY" | translate }}</span>
+          <span role="columnheader">{{ "LABEL_PRICE" | translate }}</span>
+          <span role="columnheader"><span class="visually-hidden">Action</span></span>
+        </div>
+        @for (item of gridDataSource | async; track item.id) {
+          <app-product layout="row" [item]="item" [isLoggedIn]="isLoggedIn()" [isDeluxe]="isDeluxe()"></app-product>
+        }
+      </div>
+    } @else {
+      <mat-card appearance="outlined" class="mat-elevation-z6 emptyState">
+        <div class="mdc-card">
+          <img
+            alt=" No results found"
+            class="img-responsive noResult"
+            src="assets/public/images/products/no-results.png"
+          />
+          <mat-card-title>
+            <span class="noResultText">
+              {{ "NO_SEARCH_RESULT" | translate }}
+            </span>
+          </mat-card-title>
+          <mat-card-content>
+            <span class="noResultText">
+              {{ "EMPTY_SEARCH_RESULT" | translate }}
+            </span>
+          </mat-card-content>
+        </div>
+      </mat-card>
+    }
 
-  <mat-paginator
-    #paginator
-    [pageSize]="currentPageSize"
-    [pageSizeOptions]="pageSizeOptions"
-    [length]="resultsLength"
-    class="paginator mat-elevation-z6"
-    color="tertiary"
-  >
-  </mat-paginator>
+    <mat-paginator
+      #paginator
+      [pageSize]="currentPageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      [length]="resultsLength"
+      class="paginator mat-elevation-z6"
+      color="tertiary"
+    >
+    </mat-paginator>
+  </div>
 </main>

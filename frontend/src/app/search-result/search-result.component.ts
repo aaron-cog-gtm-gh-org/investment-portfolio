@@ -4,7 +4,7 @@
  */
 
 /* eslint-disable @typescript-eslint/prefer-for-of */
-import { ActivatedRoute, Router } from '@angular/router'
+import { ActivatedRoute, Router, RouterLink } from '@angular/router'
 import { ProductService } from '../Services/product.service'
 import { type AfterViewInit, Component, NgZone, type OnDestroy, ViewChild, ChangeDetectorRef, ElementRef, inject, ChangeDetectionStrategy } from '@angular/core'
 import { MatPaginator } from '@angular/material/paginator'
@@ -21,8 +21,12 @@ import { QuantityService } from '../Services/quantity.service'
 import { DeluxeGuard } from '../app.guard'
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule, MatCardTitle, MatCardContent } from '@angular/material/card'
+import { MatIconModule } from '@angular/material/icon'
 import { AsyncPipe } from '@angular/common'
 import { ProductComponent } from '../product/product.component'
+import { PortfolioOverviewComponent } from '../portfolio-overview/portfolio-overview.component'
+import { AccountsPanelComponent } from '../accounts-panel/accounts-panel.component'
+import { MarketTickerComponent } from '../market-ticker/market-ticker.component'
 
 library.add(faEye, faCartPlus)
 
@@ -31,7 +35,7 @@ library.add(faEye, faCartPlus)
   selector: 'app-search-result',
   templateUrl: './search-result.component.html',
   styleUrls: ['./search-result.component.scss'],
-  imports: [MatCardModule, TranslateModule, MatButtonModule, MatCardTitle, MatCardContent, MatPaginator, AsyncPipe, ProductComponent]
+  imports: [MatCardModule, TranslateModule, MatButtonModule, MatCardTitle, MatCardContent, MatPaginator, AsyncPipe, MatIconModule, RouterLink, ProductComponent, PortfolioOverviewComponent, AccountsPanelComponent, MarketTickerComponent]
 })
 export class SearchResultComponent implements OnDestroy, AfterViewInit {
   private readonly deluxeGuard = inject(DeluxeGuard)
@@ -161,7 +165,7 @@ export class SearchResultComponent implements OnDestroy, AfterViewInit {
   // vuln-code-snippet end localXssChallenge xssBonusChallenge
 
   private setupResponsivePageSize () {
-    const grid = this.elRef.nativeElement.querySelector('.products-grid')
+    const grid = this.elRef.nativeElement.querySelector('.investments-table')
     if (!grid) return
     this.resizeObserver = new ResizeObserver(() => {
       this.ngZone.run(() => {
