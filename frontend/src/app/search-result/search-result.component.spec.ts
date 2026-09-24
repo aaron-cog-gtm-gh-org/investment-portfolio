@@ -222,13 +222,12 @@ describe('SearchResultComponent', () => {
     })
 
     describe('template rendering', () => {
-        it('should render the all-products heading when no search value is set', () => {
+        it('should hide the search results section when no search value is set', () => {
             component.searchValue = undefined as any
             component.emptyState = false
             fixture.detectChanges()
-            const heading = (fixture.nativeElement as HTMLElement).querySelector('.heading')
-            expect(heading).toBeTruthy()
-            expect((fixture.nativeElement as HTMLElement).querySelector('#searchValue')).toBeNull()
+            const results = (fixture.nativeElement as HTMLElement).querySelector('.search-results')
+            expect(results?.classList.contains('search-results-hidden')).toBe(true)
         })
 
         it('should render the search results heading with the current search value', () => {

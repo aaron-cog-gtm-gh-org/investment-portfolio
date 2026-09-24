@@ -1,0 +1,20 @@
+<!--
+  ~ Copyright (c) 2014-2026 Bjoern Kimminich & the OWASP Juice Shop contributors.
+  ~ SPDX-License-Identifier: MIT
+-->
+
+<div class="ticker-strip" aria-label="Market ticker with mock quotes">
+  <span class="ticker-tag">MARKETS</span>
+  <div class="ticker-track">
+    @for (quote of quotes; track quote.symbol) {
+      <span class="quote">
+        <span class="symbol">{{ quote.symbol }}</span>
+        <span class="last">{{ quote.last | number: '1.2-4' }}</span>
+        <span class="change" [class.up]="quote.change >= 0" [class.down]="quote.change < 0">
+          {{ quote.change >= 0 ? '▲' : '▼' }} {{ quote.change | number: '1.2-2' }}%
+        </span>
+      </span>
+    }
+  </div>
+  <span class="ticker-note">Delayed mock data</span>
+</div>

@@ -1,0 +1,164 @@
+/*!
+ * Copyright (c) 2014-2026 Bjoern Kimminich & the OWASP Juice Shop contributors.
+ * SPDX-License-Identifier: MIT
+ */
+
+@use '../../styles/variables' as *;
+
+.accounts {
+  display: block;
+  background: #fff;
+  border: 1px solid rgb(0 0 0 / 10%);
+  border-radius: 8px;
+  padding: $space-ml $space-m;
+
+  h2 {
+    margin: 0 0 $space-s;
+    font-size: 21px;
+    font-weight: 400;
+  }
+}
+
+.column-heads {
+  display: flex;
+  justify-content: space-between;
+  gap: $space-s;
+  padding-bottom: $space-2xs;
+  font-size: 11px;
+  opacity: 0.55;
+
+  span {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right {
+    align-items: flex-end;
+  }
+}
+
+.account-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.account {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-s;
+  padding: $space-s 0;
+  border-top: 1px solid rgb(0 0 0 / 8%);
+}
+
+.account-name {
+  display: flex;
+  flex-direction: column;
+
+  a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--rbc-blue, #005daa);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.account-number {
+  font-size: 11px;
+  opacity: 0.55;
+}
+
+.account-figures {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-variant-numeric: tabular-nums;
+}
+
+.account-balance {
+  font-size: 14px;
+}
+
+.account-change {
+  font-size: 12px;
+}
+
+.up {
+  color: var(--rbc-gain, #0f7b4f);
+}
+
+.down {
+  color: var(--rbc-loss, #c0392b);
+}
+
+.accounts-total {
+  display: flex;
+  justify-content: space-between;
+  padding: $space-s 0;
+  border-top: 2px solid rgb(0 93 170 / 25%);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.total-value {
+  font-variant-numeric: tabular-nums;
+}
+
+.accounts-actions {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2xs;
+  padding-top: $space-2xs;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
+  padding: $space-2xs 0;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--rbc-blue, #005daa);
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--rbc-blue, #005daa);
+    outline-offset: 2px;
+  }
+
+  &.primary {
+    justify-content: center;
+    margin-bottom: $space-2xs;
+    padding: $space-xs $space-s;
+    border-radius: 4px;
+    background: var(--rbc-gold, #fedf01);
+    color: #1a1a1a;
+    font-weight: 600;
+  }
+
+  &.primary:hover {
+    background: var(--rbc-gold-deep, #c9a200);
+    text-decoration: none;
+  }
+}
+
+.disclaimer {
+  margin: $space-s 0 0;
+  font-size: 11px;
+  opacity: 0.55;
+}
