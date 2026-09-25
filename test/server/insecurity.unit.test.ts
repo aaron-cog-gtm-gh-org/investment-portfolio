@@ -204,6 +204,20 @@ void describe('insecurity', () => {
     })
   })
 
+  void describe('customerToken', () => {
+    void it('returns SHA-256 HMAC over normalized email and username', () => {
+      assert.equal(security.customerToken('Admin@Juice-Sh.Op', 'Admin'), security.hmac('admin@juice-sh.opadmin'))
+    })
+
+    void it('returns same token for inputs that normalize to the same concatenated string', () => {
+      assert.equal(security.customerToken('admin@juice-sh.o', 'p'), security.customerToken('admin@juice-sh.op', ''))
+    })
+
+    void it('returns different tokens for different usernames', () => {
+      assert.notEqual(security.customerToken('a@b.com', 'x'), security.customerToken('a@b.com', 'y'))
+    })
+  })
+
   void describe('deluxeToken', () => {
     void it('returns SHA-256 HMAC with private key as salt for email and deluxe role', () => {
       assert.equal(security.deluxeToken('test@juice-sh.op'), '91e2b6493fda679d95ae05ac0d1cdce82c2ad4f7b518202a3ed54732531bc7e1')
