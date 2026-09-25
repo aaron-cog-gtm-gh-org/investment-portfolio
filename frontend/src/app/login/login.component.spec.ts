@@ -183,18 +183,18 @@ describe('LoginComponent', () => {
 
     it('puts current email into "email" cookie on successful login with remember-me checkbox ticked', () => {
         userService.login.mockReturnValue(of({}))
-        component.emailControl.setValue('horst@juice-sh.op')
+        component.emailControl.setValue('horst@portfolio-tracker.example')
         component.rememberMe.setValue(true)
         component.login()
-        expect(localStorage.getItem('email')).toBe('horst@juice-sh.op')
+        expect(localStorage.getItem('email')).toBe('horst@portfolio-tracker.example')
     })
 
     it('puts current email into "email" cookie on failed login with remember-me checkbox ticked', () => {
         userService.login.mockReturnValue(throwError({ error: 'Error' }))
-        component.emailControl.setValue('horst@juice-sh.op')
+        component.emailControl.setValue('horst@portfolio-tracker.example')
         component.rememberMe.setValue(true)
         component.login()
-        expect(localStorage.getItem('email')).toBe('horst@juice-sh.op')
+        expect(localStorage.getItem('email')).toBe('horst@portfolio-tracker.example')
     })
 
     describe('template rendering', () => {

@@ -327,7 +327,7 @@ void describe('/rest/chat', { timeout: 120000 }, () => {
   })
 
   void it('POST handles getOrderById tool call by reporting order not found for authenticated customer', { timeout: 15000 }, async () => {
-    const { token } = await login(app, { email: 'jim@juice-sh.op', password: 'ncc-1701' })
+    const { token } = await login(app, { email: 'jim@portfolio-tracker.example', password: 'ncc-1701' })
     let toolResult: string | undefined
     let callCount = 0
     onLlmRequest = (_req, body, res) => {

@@ -206,7 +206,7 @@ void describe('insecurity', () => {
 
   void describe('deluxeToken', () => {
     void it('returns SHA-256 HMAC with private key as salt for email and deluxe role', () => {
-      assert.equal(security.deluxeToken('test@juice-sh.op'), '91e2b6493fda679d95ae05ac0d1cdce82c2ad4f7b518202a3ed54732531bc7e1')
+      assert.equal(security.deluxeToken('test@portfolio-tracker.example'), '79bc6535e7c99a1e0e5efe0ce0ada725a7fe50ed8b435b43e1191b3a5a7ababe')
     })
   })
 
@@ -230,19 +230,19 @@ void describe('insecurity', () => {
 
   void describe('isDeluxe', () => {
     void it('returns true if decoded token has deluxe role and valid deluxe token', () => {
-      const user = { data: { email: 'deluxe@juice-sh.op', role: 'deluxe', deluxeToken: security.deluxeToken('deluxe@juice-sh.op') } }
+      const user = { data: { email: 'deluxe@portfolio-tracker.example', role: 'deluxe', deluxeToken: security.deluxeToken('deluxe@portfolio-tracker.example') } }
       const token = security.authorize(user)
       assert.equal(security.isDeluxe({ headers: { authorization: `Bearer ${token}` } } as unknown as Request), true)
     })
 
     void it('returns false if decoded token has deluxe role but invalid deluxe token', () => {
-      const user = { data: { email: 'deluxe@juice-sh.op', role: 'deluxe', deluxeToken: 'invalid' } }
+      const user = { data: { email: 'deluxe@portfolio-tracker.example', role: 'deluxe', deluxeToken: 'invalid' } }
       const token = security.authorize(user)
       assert.equal(security.isDeluxe({ headers: { authorization: `Bearer ${token}` } } as unknown as Request), false)
     })
 
     void it('returns false if decoded token has other role', () => {
-      const user = { data: { email: 'admin@juice-sh.op', role: 'admin' } }
+      const user = { data: { email: 'admin@portfolio-tracker.example', role: 'admin' } }
       const token = security.authorize(user)
       assert.equal(security.isDeluxe({ headers: { authorization: `Bearer ${token}` } } as unknown as Request), false)
     })

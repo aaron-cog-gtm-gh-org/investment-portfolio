@@ -15,7 +15,7 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline" color="tertiary">
-        <mat-label>{{"LABEL_QUANTITY" | translate}}</mat-label>
+        <mat-label>{{"LABEL_RECYCLE_QUANTITY" | translate}}</mat-label>
         <input [formControl]="recycleQuantityControl" type="number" [placeholder]="'IN_LITERS_PLACEHOLDER' | translate" matInput>
         @if (recycleQuantityControl.invalid && recycleQuantityControl.errors.required) {
           <mat-error translate>
@@ -64,9 +64,8 @@
         <img mat-card-image [src]="topImage">
         <mat-card-content>
           <div>
-            <small>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-              labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-              rebum.
+            <small>Paper statements and trade confirmations are collected in tamper-evident containers and
+              destroyed by cross-cut shredding. The service is provided at no charge for account holders.
             </small>
           </div>
         </mat-card-content>
@@ -76,9 +75,8 @@
         <img mat-card-image [src]="bottomImage">
         <mat-card-content>
           <div>
-            <small>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor
-              sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-              aliquyam erat, sed diam voluptua.
+            <small>A certificate of destruction is issued for every pickup and stored with your account
+              documents. Material is shredded on site before it leaves your premises.
             </small>
           </div>
         </mat-card-content>

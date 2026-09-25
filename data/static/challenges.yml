@@ -344,12 +344,12 @@
 -
   name: 'Ephemeral Accountant'
   category: 'Injection'
-  description: 'Log in with the (non-existing) accountant <i>acc0unt4nt@juice-sh.op</i> without ever registering that user.'
+  description: 'Log in with the (non-existing) accountant <i>acc0unt4nt@portfolio-tracker.example</i> without ever registering that user.'
   difficulty: 4
   hints:
     - 'Try to create the needed user "out of thin air".'
     - 'The user literally needs to be ephemeral as in "lasting for only a short time".'
-    - 'Registering normally with the user’s email address will then obviously not solve this challenge. The Juice Shop will not even let you register as acc0unt4nt@juice-sh.op, as this would make the challenge unsolvable for you.'
+    - 'Registering normally with the user’s email address will then obviously not solve this challenge. The Juice Shop will not even let you register as acc0unt4nt@portfolio-tracker.example, as this would make the challenge unsolvable for you.'
     - 'Getting the user into the database some other way will also fail to solve this challenge. In case you somehow managed to do so, you need to restart the Juice Shop application in order to wipe the database and make the challenge solvable again.'
     - 'The fact that this challenge is in the Injection category should already give away the intended approach.'
   mitigationUrl: 'https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html'
@@ -448,7 +448,7 @@
 -
   name: 'Forged Signed JWT'
   category: 'Vulnerable Components'
-  description: 'Forge an almost properly RSA-signed JWT token that impersonates the (non-existing) user <i>rsa_lord@juice-sh.op</i>.'
+  description: 'Forge an almost properly RSA-signed JWT token that impersonates the (non-existing) user <i>rsa_lord@portfolio-tracker.example</i>.'
   difficulty: 6
   hints:
     - 'This challenge is explicitly not about acquiring the RSA private key used for JWT signing.'
@@ -1135,7 +1135,7 @@
 -
   name: 'Unsigned JWT'
   category: 'Vulnerable Components'
-  description: 'Forge an essentially unsigned JWT token that impersonates the (non-existing) user <i>jwtn3d@juice-sh.op</i>.'
+  description: 'Forge an essentially unsigned JWT token that impersonates the (non-existing) user <i>jwtn3d@portfolio-tracker.example</i>.'
   difficulty: 5
   hints:
     - 'This challenge exploits a weird option that is supported when signing tokens with JWT.'

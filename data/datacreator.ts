@@ -82,7 +82,7 @@ async function createChallenges () {
     let tags = challenge.tags
 
     const { enabled: isChallengeEnabled, disabledBecause } = utils.getChallengeEnablementStatus({ disabledEnv: challenge.disabledEnv?.join(';') ?? '' } as ChallengeModel)
-    description = description.replace('juice-sh.op', config.get<string>('application.domain'))
+    description = description.replace('portfolio-tracker.example', config.get<string>('application.domain'))
     description = description.replace('http://htmledit.squarefree.com', config.get<string>('challenges.overwriteUrlForCsrfChallenge'))
     description = description.replace('&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&amp;color=%23ff5500&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;', entities.encode(config.get('challenges.xssBonusPayload')))
     const hasCodingChallenge = challengeKeysWithCodeChallenges.includes(challenge.key)

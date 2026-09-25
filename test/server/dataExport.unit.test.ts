@@ -32,7 +32,7 @@ void describe('dataExport', () => {
   })
 
   void it('should call next with error if MemoryModel.findAll fails', async () => {
-    mock.method(security.authenticatedUsers, 'get', () => ({ data: { id: 1, email: 'test@juice-sh.op', username: 'test' } }))
+    mock.method(security.authenticatedUsers, 'get', () => ({ data: { id: 1, email: 'test@portfolio-tracker.example', username: 'test' } }))
     const error = new Error('Memory error')
     mock.method(MemoryModel, 'findAll', async () => { throw error })
 
@@ -43,7 +43,7 @@ void describe('dataExport', () => {
   })
 
   void it('should call next with error if ordersCollection.find fails', async () => {
-    mock.method(security.authenticatedUsers, 'get', () => ({ data: { id: 1, email: 'test@juice-sh.op', username: 'test' } }))
+    mock.method(security.authenticatedUsers, 'get', () => ({ data: { id: 1, email: 'test@portfolio-tracker.example', username: 'test' } }))
     mock.method(MemoryModel, 'findAll', async () => [])
     const error = new Error('Orders error')
     mock.method(db.ordersCollection, 'find', async () => { throw error })
@@ -55,7 +55,7 @@ void describe('dataExport', () => {
   })
 
   void it('should call next with error if reviewsCollection.find fails', async () => {
-    mock.method(security.authenticatedUsers, 'get', () => ({ data: { id: 1, email: 'test@juice-sh.op', username: 'test' } }))
+    mock.method(security.authenticatedUsers, 'get', () => ({ data: { id: 1, email: 'test@portfolio-tracker.example', username: 'test' } }))
     mock.method(MemoryModel, 'findAll', async () => [])
     mock.method(db.ordersCollection, 'find', async () => [])
     const error = new Error('Reviews error')

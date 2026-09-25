@@ -19,7 +19,7 @@ before(
     app = result.app
 
     const { token } = await login(app, {
-      email: 'jim@juice-sh.op',
+      email: 'jim@portfolio-tracker.example',
       password: 'ncc-1701'
     })
     authHeader = {

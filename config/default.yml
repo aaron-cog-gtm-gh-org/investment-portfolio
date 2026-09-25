@@ -3,7 +3,7 @@ server:
   basePath: ''
   baseUrl: 'http://localhost:3000' # used for CSAF, e.g. https://example.com
 application:
-  domain: juice-sh.op # for pre-loaded email users
+  domain: portfolio-tracker.example # for pre-loaded email users
   name: 'RBC Portfolio Tracker'
   logo: RBCPortfolio_Logo.png
   favicon: favicon_rbc.ico
@@ -28,14 +28,14 @@ application:
     - 'CHATBOT_PROMPT_RECOMMENDATION_START_DAY'
     - 'CHATBOT_PROMPT_RECOMMENDATION_SEASONAL'
   social:
-    blueSkyUrl: 'https://bsky.app/profile/owasp-juice.shop'
-    mastodonUrl: 'https://fosstodon.org/@owasp_juiceshop'
-    twitterUrl: 'https://twitter.com/owasp_juiceshop'
-    facebookUrl: 'https://www.facebook.com/owasp.juiceshop'
-    slackUrl: 'https://owasp.org/slack/invite'
-    redditUrl: 'https://www.reddit.com/r/owasp_juiceshop'
-    pressKitUrl: 'https://github.com/OWASP/owasp-swag/tree/master/projects/juice-shop'
-    nftUrl: 'https://opensea.io/collection/juice-shop'
+    blueSkyUrl: ''
+    mastodonUrl: ''
+    twitterUrl: ''
+    facebookUrl: ''
+    slackUrl: ''
+    redditUrl: ''
+    pressKitUrl: ''
+    nftUrl: ''
     questionnaireUrl:
   recyclePage:
     topProductImage: research_report.png
@@ -51,7 +51,7 @@ application:
     linkUrl: '/#/privacy-security/privacy-policy'
   securityTxt:
     contact: 'mailto:donotreply@portfolio-tracker.example'
-    encryption: 'https://keybase.io/bkimminich/pgp_keys.asc?fingerprint=19c01cb7157e4645e9e2c863062a85a8cbfbdcda'
+    encryption: ''
     acknowledgements: '/#/score-board'
     hiring: '/#/jobs'
     csaf: '/.well-known/csaf/provider-metadata.json' # scheme,host,port taken from baseUrl
@@ -78,7 +78,7 @@ application:
     - {uri: 'http://penguin.termina.linux.test:3000', proxy: 'https://localchromeos.owasp-juice.shop'}
     - {uri: 'http://penguin.termina.linux.test:4200', proxy: 'https://localchromeos.owasp-juice.shop'}
 challenges:
-  showSolvedNotifications: true
+  showSolvedNotifications: false
   showHints: true
   showMitigations: true
   codingChallengesEnabled: solved # Options: never  solved  always
@@ -94,7 +94,7 @@ challenges:
   - 'promscrape'
   - 'otelcol'
 hackingInstructor:
-  isEnabled: true
+  isEnabled: false
   avatarImage: RBCAdvisorBot.png
   hintPlaybackSpeed: normal # Options: faster fast normal slow slower
 products:
@@ -106,20 +106,20 @@ products:
   image: eq_canada.png
   reviews:
   - {text: 'One of my favorites!', author: admin}
-  - {text: "Great! We'll have an apple party. Everyone brings an apple and - STUFFS IT DOWN EACH OTHER'S THROAT!", author: basil}
+  - {text: 'Low fee and it tracks the index closely. Reinvested distributions keep compounding nicely.', author: basil}
 - name: 'US Total Market Index Fund (USTM)'
   description: 'Broad exposure to large-, mid- and small-cap U.S. equities, unhedged to the Canadian dollar.'
   price: 2.99
   deluxePrice: 2.49
   image: eq_us.png
   reviews:
-  - {text: 'y0ur f1r3wall needs m0r3 musc13', author: uvogin}
+  - {text: 'Cheap, broad exposure to the whole U.S. market. Watch the currency swings when it is unhedged.', author: uvogin}
 - name: 'Global Equity Growth Fund (GLBL)'
   description: 'Developed-market growth companies outside of North America, screened for quality of earnings.'
   price: 8.99
   image: eq_global.png
   reviews:
-  - {text: 'I bought it, would buy again. 5/7', author: admin}
+  - {text: 'I bought it and would buy again. Growth tilt means some bumpier quarters, though.', author: admin}
 - name: 'Emerging Markets Equity Fund (EMEQ)'
   description: 'Higher-volatility exposure across Asia, Latin America and EMEA for long-horizon accounts.'
   price: 4.99
@@ -135,7 +135,7 @@ products:
   price: 1.99
   image: cash_money_market.png
   reviews:
-  - {text: 'Fry liked it too.', author: bender}
+  - {text: 'Does exactly what it should: keeps idle cash earning something until I place the next order.', author: bender}
 - name: 'Balanced Growth Portfolio (BALG)'
   description: 'A 60/40 mix of global equities and investment-grade bonds, rebalanced automatically.'
   price: 22.49
@@ -188,7 +188,7 @@ products:
   price: 14.99
   image: research_report.png
   reviews:
-  - {text: 'I straight-up gots nuff props fo''these tattoos!', author: rapper}
+  - {text: 'The drift alerts fired before my allocation wandered too far. Set it and forget it.', author: rapper}
 - name: 'Real Estate Income Fund (REIT)'
   description: 'Canadian and global real estate investment trusts held for their monthly distributions.'
   price: 21.99
@@ -204,8 +204,8 @@ products:
   limitPerUser: 5
   image: esg_fund.png
   reviews:
-  - {text: 'This thang would look phat on Bobby''s jacked fur coat!', author: rapper}
-  - {text: 'Looks so much better on my uniform than the boring Starfleet symbol.', author: jim}
+  - {text: 'Reasonable fee for the screens applied. Holdings list matches the stated ESG criteria.', author: rapper}
+  - {text: 'Bought a small position for my TFSA. Liquidity is thin, so expect wider spreads.', author: jim}
 - name: 'Woodruff Agricultural Futures Note "Forest Master X-Treme"'
   description: 'A structured note linked to a basket of specialty crop futures. Capital is not protected.'
   price: 6.99
@@ -215,7 +215,7 @@ products:
   price: 1.99
   image: eq_energy.png
   reviews:
-  - {text: 'Fresh out of a replicator.', author: jim}
+  - {text: 'Small allocation, but the underlying holdings are genuinely new-economy names.', author: jim}
 - name: 'Real Return Bond Fund (RRBD)'
   description: 'Federal bonds whose principal is indexed to the Canadian consumer price index.'
   price: 4.99
@@ -256,18 +256,18 @@ products:
   price: 2.99
   image: bond_aggregate.png
   reviews:
-  - {text: '0 st4rs f0r 7h3 h0rr1bl3 s3cur17y', author: uvogin}
+  - {text: 'One star for the confusing fee disclosure; the fund itself tracks the index fine.', author: uvogin}
 - name: 'Sweden Tour 2017 Investor Seminar Pass (Special Edition)'
   description: 'Seminar pass from the 2017 Nordic investor tour. Registration has closed.'
   price: 19.1
   image: webinar_seat.png
   deletedDate: '2017-09-20'
-- name: 'Pwning Your Portfolio Fees'
+- name: 'The True Cost of Fees (Research Paper)'
   description: 'Research paper on how management expense ratios compound against you over thirty years.'
   price: 5.99
   image: research_report.png
   reviews:
-  - {text: 'Even more interesting than watching Interdimensional Cable!', author: morty}
+  - {text: 'Eye-opening read on how a two percent MER compounds over thirty years. Worth the price.', author: morty}
 - name: 'Melon Mobility Growth Fund (2018 Comeback Edition)'
   description: 'Concentrated position in urban mobility manufacturers. Limited to one unit per account.'
   price: 2999
@@ -285,23 +285,23 @@ products:
   quantity: 8
   image: webinar_seat.png
   reviews:
-  - {text: 'Wait for a 10$ Steam sale of Tabletop Simulator!', author: bjoernOwasp}
+  - {text: 'Wait for the free community edition of this workshop; the paid seat adds little.', author: bjoernOwasp}
 - name: 'Risk Ladder Workshop - Mobile Apps'
   description: 'The mobile edition of the operational risk workshop, including a device handling session.'
   price: 0.01
   quantity: 0
   image: webinar_seat.png
   reviews:
-  - {text: "Here yo' learn how tha fuck ta not show yo' goddamn phone on camera!", author: rapper}
+  - {text: 'Covers mobile-specific operational risks well. The device handling session is the best part.', author: rapper}
 - name: 'Holographic Performance Certificate'
   description: "A holographic certificate recognising a full decade of uninterrupted contributions."
   price: 2.00
   quantity: 0
   image: esg_fund.png
   reviews:
-  - {text: "Rad, dude!", author: rapper}
-  - {text: "Looks spacy on Bones' new tricorder!", author: jim}
-  - {text: "Will put one on the Planet Express ship's bumper!", author: bender}
+  - {text: 'Nice touch for the ten-year milestone. Framing quality is decent for the price.', author: rapper}
+  - {text: 'Arrived well packaged. A small but appreciated recognition of long-term contributions.', author: jim}
+  - {text: 'Hangs nicely in my office. Would prefer a digital version alongside the print.', author: bender}
 - name: '"King of the Hill" Trading Desk Facemask'
   description: "Branded facemask from the trading floor. Out of stock and not being reordered."
   price: 13.49
@@ -309,8 +309,8 @@ products:
   limitPerUser: 1
   image: infrastructure.png
   reviews:
-  - {text: "K33p5 y0ur ju1cy 5plu773r 70 y0ur53lf!", author: uvogin}
-  - {text: "Puny mask for puny human weaklings!", author: bender}
+  - {text: 'Comfortable and does the job on the trading floor. Pity it is discontinued.', author: uvogin}
+  - {text: 'Standard branded merchandise. Nothing special, but serviceable.', author: bender}
 - name: 'Market Adversary Trading Card (Common)'
   description: 'Collectible card depicting a common market hazard. Withdrawn from the catalogue.'
   price: 2.99
@@ -319,7 +319,7 @@ products:
   limitPerUser: 5
   image: structured_note.png
   reviews:
-  - {text: "Ooooh, puny human playing Mau Mau, now?", author: bender}
+  - {text: 'A fun bit of memorabilia. The common edition is priced fairly.', author: bender}
 - name: 'Market Adversary Trading Card (Super Rare)'
   description: 'Collectible card depicting a rare market hazard. Withdrawn from the catalogue.'
   price: 99.99
@@ -329,7 +329,7 @@ products:
   limitPerUser: 1
   image: precious_metals.png
   reviews:
-  - {text: "Mau Mau with bling-bling? Humans are so pathetic!", author: bender}
+  - {text: 'Too expensive for what it is, but the rare edition does hold its collector value.', author: bender}
 - name: '"Permafrost" Frozen Rate GIC (2020 Edition)'
   description: 'A single remaining unit of the 2020 frozen-rate guaranteed investment certificate.'
   price: 9999.99
@@ -337,15 +337,15 @@ products:
   limitPerUser: 1
   image: gic_5yr.png
   reviews:
-  - {text: "🧊 Let it go, let it go 🎶 Can't hold it back anymore 🎶 Let it go, let it go 🎶 Turn away and slam the door ❄️", author: rapper}
+  - {text: 'Locked in a strong rate before the cuts. Glad I grabbed one of the last units.', author: rapper}
 - name: 'Best Advisor Artwork'
   description: 'An oil painting of a very persuasive advisor, mounted in a gilded frame.'
   price: 5000
   quantity: 1
   image: eq_dividend.png
   reviews:
-  - {text: "I'd stand on my head to make you a deal for this piece of art.", author: stan}
-  - {text: "Just when my opinion of humans couldn't get any lower, along comes Stan...", author: bender}
+  - {text: 'Striking piece, though the price reflects the frame more than the art itself.', author: stan}
+  - {text: 'Overpriced for a lobby print, but it does look impressive in person.', author: bender}
 - name: 'Founding Investor Card (non-foil)'
   description: 'Membership card issued to founding investors. Three remain in circulation.'
   price: 1000
@@ -353,7 +353,7 @@ products:
   limitPerUser: 1
   image: gic_cashable.png
   reviews:
-  - {text: 'DO NOT PLAY WITH THIS! Double-sleeve, then put it in the GitHub Arctic Vault for perfect preservation and boost of secondary market value!', author: accountant}
+  - {text: 'Keep it sealed and stored properly. These early membership cards hold their value well.', author: accountant}
 - name: '20th Anniversary Investor Celebration Ticket'
   description: 'Ticket to the twentieth anniversary investor celebration. The event has already taken place.'
   price: 0.00000000000000000001
@@ -369,7 +369,7 @@ products:
   limitPerUser: 1
   image: infrastructure.png
   reviews:
-  - {text: 'Check out the /#/photo-wall for some impressions of the assembly process!', author: bjoernOwasp}
+  - {text: 'The lobby model really makes twenty years of compounding tangible. Worth seeing in person.', author: bjoernOwasp}
 - name: 'Portfolio Maturity Assessment Day Ticket'
   description: 'Seat at the annual maturity assessment day for self-directed investors. Registration has closed.'
   price: 55.20
@@ -377,8 +377,8 @@ products:
   limitPerUser: 1
   image: webinar_seat.png
   reviews:
-  - {text: 'The DSOMM Live Assessment session will even use Juice Shop as its "real-world" example!', author: timo}
-  - {text: 'We will showcase the amazing MultiJuicer Lego Tower at this event!', author: jannik}
+  - {text: 'The live maturity assessment session alone was worth the ticket price.', author: timo}
+  - {text: 'Great lineup of speakers. The portfolio showcase was a highlight.', author: jannik}
 - name: 'Health Care Innovation Fund (HLTH)'
   description: 'Global pharmaceutical, medical device and managed care holdings.'
   price: 2.99
@@ -404,7 +404,7 @@ products:
   price: 2.99
   image: eq_canada.png
   reviews:
-  - {text: "(ง'̀-'́)ง", author: basil}
+  - {text: 'Genuinely under-followed names. Volatile, but the research desk picks have been solid.', author: basil}
 - name: '1-Year Guaranteed Investment Certificate'
   description: 'Principal-protected certificate with interest paid at maturity.'
   price: 2.49

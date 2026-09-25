@@ -33,10 +33,10 @@
     </span>
     <span class="cell price" role="cell">
       @if (!isDeluxe() || product.price === product.deluxePrice) {
-        {{ product.price }}&curren;
+        ${{ product.price | number:'1.2-2' }}
       } @else {
-        <s class="expired">{{ product.price }}</s>
-        {{ product.deluxePrice }}&curren;
+        <s class="expired">${{ product.price | number:'1.2-2' }}</s>
+        ${{ product.deluxePrice | number:'1.2-2' }}
       }
     </span>
     <span class="cell action" role="cell">
@@ -97,11 +97,11 @@
     <footer class="footer">
        <div class="price">
           @if (!isDeluxe() || product.price === product.deluxePrice) {
-            {{ product.price }}&curren;
+            ${{ product.price | number:'1.2-2' }}
           }
           @if (isDeluxe() && product.price !== product.deluxePrice) {
-            <s class="expired">{{ product.price }}</s>
-            {{ product.deluxePrice }}&curren;
+            <s class="expired">${{ product.price | number:'1.2-2' }}</s>
+            ${{ product.deluxePrice | number:'1.2-2' }}
           }
         </div>
       <button
