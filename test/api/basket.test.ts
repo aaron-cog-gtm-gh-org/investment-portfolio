@@ -28,7 +28,7 @@ before(
     app = result.app
 
     const { token } = await login(app, {
-      email: 'jim@juice-sh.op',
+      email: 'jim@portfolio-tracker.example',
       password: 'ncc-1701'
     })
     authHeader = {
@@ -62,7 +62,7 @@ void describe('/rest/basket/:id', () => {
 
   void it('GET basket should accept forged JWTs', async () => {
     const header = Buffer.from(JSON.stringify({ alg: 'none', typ: 'JWT' })).toString('base64url')
-    const payload = Buffer.from(JSON.stringify({ data: { email: 'jim@juice-sh.op' }, iat: 1508639612, exp: 9999999999 })).toString('base64url')
+    const payload = Buffer.from(JSON.stringify({ data: { email: 'jim@portfolio-tracker.example' }, iat: 1508639612, exp: 9999999999 })).toString('base64url')
     const unsignedToken = `${header}.${payload}.`
     const res = await request(app)
       .get('/rest/basket/1')

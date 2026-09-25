@@ -166,7 +166,7 @@ void describe('/rest/user/login', () => {
     assert.equal(typeof res.body.authentication.token, 'string')
   })
 
-  void it('POST login with known email "admin@juice-sh.op" in SQL injection attack', async () => {
+  void it('POST login with known email "admin@portfolio-tracker.example" in SQL injection attack', async () => {
     const res = await request(app)
       .post('/rest/user/login')
       .set({ 'content-type': 'application/json' })
@@ -180,7 +180,7 @@ void describe('/rest/user/login', () => {
     assert.equal(typeof res.body.authentication.token, 'string')
   })
 
-  void it('POST login with known email "jim@juice-sh.op" in SQL injection attack', async () => {
+  void it('POST login with known email "jim@portfolio-tracker.example" in SQL injection attack', async () => {
     const res = await request(app)
       .post('/rest/user/login')
       .set({ 'content-type': 'application/json' })
@@ -194,7 +194,7 @@ void describe('/rest/user/login', () => {
     assert.equal(typeof res.body.authentication.token, 'string')
   })
 
-  void it('POST login with known email "bender@juice-sh.op" in SQL injection attack', async () => {
+  void it('POST login with known email "bender@portfolio-tracker.example" in SQL injection attack', async () => {
     const res = await request(app)
       .post('/rest/user/login')
       .set({ 'content-type': 'application/json' })
@@ -208,7 +208,7 @@ void describe('/rest/user/login', () => {
     assert.equal(typeof res.body.authentication.token, 'string')
   })
 
-  void it('POST login with non-existing email "acc0unt4nt@juice-sh.op" via UNION SELECT injection attack', async () => {
+  void it('POST login with non-existing email "acc0unt4nt@portfolio-tracker.example" via UNION SELECT injection attack', async () => {
     const res = await request(app)
       .post('/rest/user/login')
       .set({ 'content-type': 'application/json' })

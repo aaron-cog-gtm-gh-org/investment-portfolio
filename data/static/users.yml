@@ -7,7 +7,7 @@
     id: 2
     answer: '@xI98PxDO+06!'
   feedback:
-    comment: 'I love this shop! Best products in town! Highly recommended!'
+    comment: 'Great platform! The fund selection and reporting tools are excellent. Highly recommended!'
     rating: 5
   address:
     - fullName: 'Administrator'
@@ -36,7 +36,7 @@
     id: 1
     answer: 'Samuel' # https://en.wikipedia.org/wiki/James_T._Kirk
   feedback:
-    comment: 'Great shop! Awesome service!'
+    comment: 'Smooth order entry and great research tools. Very happy with the service!'
     rating: 4
   address:
     - fullName: 'Jim'
@@ -67,7 +67,7 @@
     id: 10
     answer: "Stop'n'Drop" # http://futurama.wikia.com/wiki/Suicide_booth
   feedback:
-    comment: 'Nothing useful available here!'
+    comment: 'Nothing here fits my investment goals. Disappointing selection.'
     rating: 1
   address:
     - fullName: 'Bender'

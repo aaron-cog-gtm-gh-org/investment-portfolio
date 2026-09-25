@@ -17,7 +17,7 @@ let cardId: number
 before(async () => {
   const result = await createTestApp()
   app = result.app
-  const { token } = await login(app, { email: 'jim@juice-sh.op', password: 'ncc-1701' })
+  const { token } = await login(app, { email: 'jim@portfolio-tracker.example', password: 'ncc-1701' })
   authHeader = { Authorization: 'Bearer ' + token, 'content-type': 'application/json' }
 }, { timeout: 60000 })
 

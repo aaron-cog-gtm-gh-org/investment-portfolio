@@ -379,7 +379,7 @@ describe('SidenavComponent', () => {
 
         it('should render the user profile entry instead of the login entry when the user is logged in', () => {
             localStorage.setItem('token', 'token')
-            component.userEmail = 'user@juice-sh.op'
+            component.userEmail = 'user@portfolio-tracker.example'
             fixture.detectChanges()
             const compiled: HTMLElement = fixture.nativeElement
             expect(compiled.querySelector('a[aria-label="Go to user profile"]')).toBeTruthy()

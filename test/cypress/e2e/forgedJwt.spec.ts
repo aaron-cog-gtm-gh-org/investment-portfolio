@@ -1,6 +1,6 @@
 describe('/', () => {
   describe('challenge "jwtUnsignedChallenge"', () => {
-    it('should accept an unsigned token with email jwtn3d@juice-sh.op in the payload ', () => {
+    it('should accept an unsigned token with email jwtn3d@portfolio-tracker.example in the payload ', () => {
       cy.window().then(() => {
         localStorage.setItem(
           'token',
@@ -13,7 +13,7 @@ describe('/', () => {
   })
 
   describe('challenge "jwtForgedChallenge"', () => {
-    it('should accept a token HMAC-signed with public RSA key with email rsa_lord@juice-sh.op in the payload ', () => {
+    it('should accept a token HMAC-signed with public RSA key with email rsa_lord@portfolio-tracker.example in the payload ', () => {
       cy.task('isWindows').then((isWindows) => {
         if (!isWindows) {
           cy.window().then(() => {
@@ -31,7 +31,7 @@ describe('/', () => {
   })
 
   describe('challenge "iacLeakedKeyChallenge"', () => {
-    it('should accept an RS256-signed token with email cloud-admin@juice-sh.op using the leaked private key', () => {
+    it('should accept an RS256-signed token with email cloud-admin@portfolio-tracker.example using the leaked private key', () => {
       cy.window().then(() => {
         localStorage.setItem(
           'token',

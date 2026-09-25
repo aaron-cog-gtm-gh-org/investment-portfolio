@@ -35,7 +35,7 @@ void describe('verify', () => {
       security.authenticatedUsers.put('token12345', {
         data: {
           id: 42,
-          email: 'test@juice-sh.op'
+          email: 'test@portfolio-tracker.example'
         } as unknown as UserModel
       })
       challenges.forgedFeedbackChallenge = { solved: false, save } as unknown as Challenge
@@ -81,7 +81,7 @@ void describe('verify', () => {
   void describe('accessControlChallenges', () => {
     void it('"scoreBoardChallenge" is solved when the 1px.png transpixel is requested', () => {
       challenges.scoreBoardChallenge = { solved: false, save } as unknown as Challenge
-      req.url = 'http://juice-sh.op/public/images/padding/1px.png'
+      req.url = 'http://portfolio-tracker.example/public/images/padding/1px.png'
 
       verify.accessControlChallenges()(req, res, next)
 
@@ -90,7 +90,7 @@ void describe('verify', () => {
 
     void it('"adminSectionChallenge" is solved when the 19px.png transpixel is requested', () => {
       challenges.adminSectionChallenge = { solved: false, save } as unknown as Challenge
-      req.url = 'http://juice-sh.op/public/images/padding/19px.png'
+      req.url = 'http://portfolio-tracker.example/public/images/padding/19px.png'
 
       verify.accessControlChallenges()(req, res, next)
 
@@ -99,7 +99,7 @@ void describe('verify', () => {
 
     void it('"tokenSaleChallenge" is solved when the 56px.png transpixel is requested', () => {
       challenges.tokenSaleChallenge = { solved: false, save } as unknown as Challenge
-      req.url = 'http://juice-sh.op/public/images/padding/56px.png'
+      req.url = 'http://portfolio-tracker.example/public/images/padding/56px.png'
 
       verify.accessControlChallenges()(req, res, next)
 
@@ -108,7 +108,7 @@ void describe('verify', () => {
 
     void it('"extraLanguageChallenge" is solved when the Klingon translation file is requested', () => {
       challenges.extraLanguageChallenge = { solved: false, save } as unknown as Challenge
-      req.url = 'http://juice-sh.op/public/i18n/tlh_AA.json'
+      req.url = 'http://portfolio-tracker.example/public/i18n/tlh_AA.json'
 
       verify.accessControlChallenges()(req, res, next)
 
@@ -118,7 +118,7 @@ void describe('verify', () => {
     void it('"retrieveBlueprintChallenge" is solved when the blueprint file is requested', () => {
       challenges.retrieveBlueprintChallenge = { solved: false, save } as unknown as Challenge
       setRetrieveBlueprintChallengeFile('test.dxf')
-      req.url = 'http://juice-sh.op/public/images/products/test.dxf'
+      req.url = 'http://portfolio-tracker.example/public/images/products/test.dxf'
 
       verify.accessControlChallenges()(req, res, next)
 
@@ -127,7 +127,7 @@ void describe('verify', () => {
 
     void it('"missingEncodingChallenge" is solved when the crazy cat photo is requested', () => {
       challenges.missingEncodingChallenge = { solved: false, save } as unknown as Challenge
-      req.url = 'http://juice-sh.op/public/images/uploads/%E1%93%9A%E1%98%8F%E1%97%A2-%23zatschi-%23whoneedsfourlegs-1572600969477.jpg'
+      req.url = 'http://portfolio-tracker.example/public/images/uploads/%E1%93%9A%E1%98%8F%E1%97%A2-%23zatschi-%23whoneedsfourlegs-1572600969477.jpg'
 
       verify.accessControlChallenges()(req, res, next)
 
@@ -136,7 +136,7 @@ void describe('verify', () => {
 
     void it('"accessLogDisclosureChallenge" is solved when any server access log file is requested', () => {
       challenges.accessLogDisclosureChallenge = { solved: false, save } as unknown as Challenge
-      req.url = 'http://juice-sh.op/support/logs/access.log.2019-01-15'
+      req.url = 'http://portfolio-tracker.example/support/logs/access.log.2019-01-15'
 
       verify.accessControlChallenges()(req, res, next)
 
@@ -145,7 +145,7 @@ void describe('verify', () => {
 
     void it('"misplacedIacFiles" is solved when a Terraform .tf file under /infrastructure is requested', () => {
       challenges.misplacedIacFiles = { solved: false, save } as unknown as Challenge
-      req.url = 'http://juice-sh.op/infrastructure/terraform/main.tf'
+      req.url = 'http://portfolio-tracker.example/infrastructure/terraform/main.tf'
 
       verify.accessControlChallenges()(req, res, next)
 
@@ -154,7 +154,7 @@ void describe('verify', () => {
 
     void it('"misplacedIacFiles" is solved when a Dockerfile under /infrastructure is requested', () => {
       challenges.misplacedIacFiles = { solved: false, save } as unknown as Challenge
-      req.url = 'http://juice-sh.op/infrastructure/Dockerfile'
+      req.url = 'http://portfolio-tracker.example/infrastructure/Dockerfile'
 
       verify.accessControlChallenges()(req, res, next)
 
@@ -163,7 +163,7 @@ void describe('verify', () => {
 
     void it('"misplacedIacFiles" is solved when a docker-compose.yml under /infrastructure is requested', () => {
       challenges.misplacedIacFiles = { solved: false, save } as unknown as Challenge
-      req.url = 'http://juice-sh.op/infrastructure/docker-compose.yml'
+      req.url = 'http://portfolio-tracker.example/infrastructure/docker-compose.yml'
 
       verify.accessControlChallenges()(req, res, next)
 
@@ -279,7 +279,7 @@ void describe('verify', () => {
       challenges.jwtForgedChallenge = { solved: false, save, disabledEnv: 'Windows' } as unknown as Challenge
     })
 
-    void it('"jwtUnsignedChallenge" is solved when forged unsigned token has email jwtn3d@juice-sh.op in the payload', () => {
+    void it('"jwtUnsignedChallenge" is solved when forged unsigned token has email jwtn3d@portfolio-tracker.example in the payload', () => {
       req.headers = { authorization: 'Bearer eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJkYXRhIjp7ImVtYWlsIjoiand0bjNkQGp1aWNlLXNoLm9wIn0sImlhdCI6MTUwODYzOTYxMiwiZXhwIjo5OTk5OTk5OTk5fQ.' }
 
       verify.jwtChallenges()(req, res, next)
@@ -295,8 +295,8 @@ void describe('verify', () => {
       assert.equal(challenges.jwtUnsignedChallenge.solved, true)
     })
 
-    void it('"jwtUnsignedChallenge" is not solved via regularly signed token even with email jwtn3d@juice-sh.op in the payload', () => {
-      const token = security.authorize({ data: { email: 'jwtn3d@juice-sh.op' } })
+    void it('"jwtUnsignedChallenge" is not solved via regularly signed token even with email jwtn3d@portfolio-tracker.example in the payload', () => {
+      const token = security.authorize({ data: { email: 'jwtn3d@portfolio-tracker.example' } })
       req.headers = { authorization: `Bearer ${token}` }
 
       verify.jwtChallenges()(req, res, next)
@@ -304,7 +304,7 @@ void describe('verify', () => {
       assert.equal(challenges.jwtUnsignedChallenge.solved, false)
     })
 
-    void it('"jwtForgedChallenge" is solved when forged token HMAC-signed with public RSA-key has email rsa_lord@juice-sh.op in the payload', { skip: isWindows() ? 'not supported on Windows' : false }, () => {
+    void it('"jwtForgedChallenge" is solved when forged token HMAC-signed with public RSA-key has email rsa_lord@portfolio-tracker.example in the payload', { skip: isWindows() ? 'not supported on Windows' : false }, () => {
       req.headers = { authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImVtYWlsIjoicnNhX2xvcmRAanVpY2Utc2gub3AifSwiaWF0IjoxNTgyMjIxNTc1fQ.ycFwtqh4ht4Pq9K5rhiPPY256F9YCTIecd4FHFuSEAg' }
 
       verify.jwtChallenges()(req, res, next)
@@ -320,8 +320,8 @@ void describe('verify', () => {
       assert.equal(challenges.jwtForgedChallenge.solved, true)
     })
 
-    void it('"jwtForgedChallenge" is not solved when token regularly signed with private RSA-key has email rsa_lord@juice-sh.op in the payload', { skip: isWindows() ? 'not supported on Windows' : false }, () => {
-      const token = security.authorize({ data: { email: 'rsa_lord@juice-sh.op' } })
+    void it('"jwtForgedChallenge" is not solved when token regularly signed with private RSA-key has email rsa_lord@portfolio-tracker.example in the payload', { skip: isWindows() ? 'not supported on Windows' : false }, () => {
+      const token = security.authorize({ data: { email: 'rsa_lord@portfolio-tracker.example' } })
       req.headers = { authorization: `Bearer ${token}` }
 
       verify.jwtChallenges()(req, res, next)
@@ -329,9 +329,9 @@ void describe('verify', () => {
       assert.equal(challenges.jwtForgedChallenge.solved, false)
     })
 
-    void it('"iacLeakedKeyChallenge" is solved when RS256-signed token has email cloud-admin@juice-sh.op in the payload', () => {
+    void it('"iacLeakedKeyChallenge" is solved when RS256-signed token has email cloud-admin@portfolio-tracker.example in the payload', () => {
       challenges.iacLeakedKeyChallenge = { solved: false, save } as unknown as Challenge
-      const token = security.authorize({ data: { email: 'cloud-admin@juice-sh.op' } })
+      const token = security.authorize({ data: { email: 'cloud-admin@portfolio-tracker.example' } })
       req.headers = { authorization: `Bearer ${token}` }
 
       verify.jwtChallenges()(req, res, next)
@@ -351,7 +351,7 @@ void describe('verify', () => {
 
     void it('"iacLeakedKeyChallenge" is not solved when token has wrong email', () => {
       challenges.iacLeakedKeyChallenge = { solved: false, save } as unknown as Challenge
-      const token = security.authorize({ data: { email: 'admin@juice-sh.op' } })
+      const token = security.authorize({ data: { email: 'admin@portfolio-tracker.example' } })
       req.headers = { authorization: `Bearer ${token}` }
 
       verify.jwtChallenges()(req, res, next)

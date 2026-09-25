@@ -75,7 +75,7 @@ void describe('/api/Wallets', () => {
     assert.equal(res.status, 402)
   })
   void it('GET wallet balance for user without a wallet returns 404', async () => {
-    const email = `newuser${Date.now()}@juice-sh.op`
+    const email = `newuser${Date.now()}@portfolio-tracker.example`
     const userRes = await request(app)
       .post('/api/Users')
       .send({ email, password: 'password', passwordRepeat: 'password', securityQuestion: { id: 1 }, securityAnswer: 'answer' })

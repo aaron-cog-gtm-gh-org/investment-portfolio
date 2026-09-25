@@ -22,7 +22,7 @@
         <div class="col col-20">
           <button type="submit" color="primary" mat-raised-button class="btn btn-float-right"
             [disabled]="(walletBalance - totalPrice) < 0" (click)="useWallet()">
-            <i class="fas fa-hand-holding-usd fa-lg"></i> {{'LABEL_PAY' | translate}} {{ totalPrice?.toFixed(2) }}¤
+            <i class="fas fa-hand-holding-usd fa-lg"></i> {{'LABEL_PAY' | translate}} ${{ totalPrice?.toFixed(2) }}
           </button>
         </div>
       </div>
@@ -71,7 +71,7 @@
     </mat-expansion-panel>
     }
     <mat-divider></mat-divider>
-    @if (mode !== 'wallet') {
+    @if (mode !== 'wallet' && applicationName === 'OWASP Juice Shop') {
     <mat-expansion-panel class="mat-elevation-z0" [expanded]="paymentPanelExpanded">
       <mat-expansion-panel-header class="detail-divider">
         <mat-panel-title>
