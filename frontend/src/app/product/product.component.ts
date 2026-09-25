@@ -4,6 +4,7 @@
  */
 
 /* eslint-disable @typescript-eslint/prefer-for-of */
+import { DecimalPipe } from '@angular/common'
 import { Component, inject, input, ChangeDetectionStrategy } from '@angular/core'
 import { BasketService } from '../Services/basket.service'
 import { ProductService } from '../Services/product.service'
@@ -20,7 +21,7 @@ import { MatDialog } from '@angular/material/dialog'
 @Component({
   changeDetection: ChangeDetectionStrategy.Eager,
   selector: 'app-product',
-  imports: [TranslateModule, MatCardModule, MatTooltip, MatButton, MatIcon],
+  imports: [TranslateModule, MatCardModule, MatTooltip, MatButton, MatIcon, DecimalPipe],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
 })

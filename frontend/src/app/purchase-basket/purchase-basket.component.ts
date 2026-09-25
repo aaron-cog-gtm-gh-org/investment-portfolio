@@ -4,6 +4,7 @@
  */
 
 import { Component, EventEmitter, Input, type OnInit, Output, inject, ChangeDetectionStrategy } from '@angular/core'
+import { DecimalPipe } from '@angular/common'
 import { BasketService } from '../Services/basket.service'
 import { UserService } from '../Services/user.service'
 import { ProductService } from '../Services/product.service'
@@ -26,7 +27,7 @@ library.add(faTrashAlt, faMinusSquare, faPlusSquare)
   selector: 'app-purchase-basket',
   templateUrl: './purchase-basket.component.html',
   styleUrls: ['./purchase-basket.component.scss'],
-  imports: [MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatFooterCellDef, MatFooterCell, MatIconButton, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow, MatFooterRowDef, MatFooterRow, TranslateModule]
+  imports: [MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatFooterCellDef, MatFooterCell, MatIconButton, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow, MatFooterRowDef, MatFooterRow, TranslateModule, DecimalPipe]
 })
 export class PurchaseBasketComponent implements OnInit {
   private readonly deluxeGuard = inject(DeluxeGuard)

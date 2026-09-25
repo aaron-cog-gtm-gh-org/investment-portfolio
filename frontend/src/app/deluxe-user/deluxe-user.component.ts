@@ -4,6 +4,7 @@
  */
 
 import { Component, NgZone, type OnInit, inject, ChangeDetectionStrategy } from '@angular/core'
+import { DecimalPipe } from '@angular/common'
 import { UserService } from '../Services/user.service'
 import { ActivatedRoute, Router } from '@angular/router'
 import { ConfigurationService } from '../Services/configuration.service'
@@ -18,7 +19,7 @@ import { MatCardModule } from '@angular/material/card'
   selector: 'app-deluxe-user',
   templateUrl: './deluxe-user.component.html',
   styleUrls: ['./deluxe-user.component.scss'],
-  imports: [MatCardModule, TranslateModule, MatButtonModule, MatIconModule]
+  imports: [MatCardModule, TranslateModule, MatButtonModule, MatIconModule, DecimalPipe]
 })
 
 export class DeluxeUserComponent implements OnInit {

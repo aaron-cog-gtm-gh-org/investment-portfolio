@@ -4,6 +4,7 @@
  */
 
 import { Component, type OnInit, inject, ChangeDetectionStrategy } from '@angular/core'
+import { DecimalPipe } from '@angular/common'
 import { TrackOrderService } from '../Services/track-order.service'
 import { ActivatedRoute, type ParamMap, RouterLink } from '@angular/router'
 import { MatTableDataSource, MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatFooterCellDef, MatFooterCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow, MatFooterRowDef, MatFooterRow } from '@angular/material/table'
@@ -27,7 +28,7 @@ library.add(faTwitter)
   selector: 'app-order-completion',
   templateUrl: './order-completion.component.html',
   styleUrls: ['./order-completion.component.scss'],
-  imports: [MatCardModule, TranslateModule, RouterLink, MatIconButton, MatTooltip, MatIconModule, MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatFooterCellDef, MatFooterCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow, MatFooterRowDef, MatFooterRow]
+  imports: [MatCardModule, TranslateModule, RouterLink, MatIconButton, MatTooltip, MatIconModule, MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatFooterCellDef, MatFooterCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow, MatFooterRowDef, MatFooterRow, DecimalPipe]
 })
 export class OrderCompletionComponent implements OnInit {
   private readonly configurationService = inject(ConfigurationService)

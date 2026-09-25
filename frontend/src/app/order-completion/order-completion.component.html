@@ -44,7 +44,7 @@
         </ng-container>
         <ng-container matColumnDef="price">
           <mat-header-cell *matHeaderCellDef translate>LABEL_PRICE</mat-header-cell>
-          <mat-cell *matCellDef="let element">${{element.price}}</mat-cell>
+          <mat-cell *matCellDef="let element">${{element.price | number:'1.2-2'}}</mat-cell>
           <mat-footer-cell *matFooterCellDef></mat-footer-cell>
         </ng-container>
         <ng-container matColumnDef="quantity">

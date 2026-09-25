@@ -6,6 +6,7 @@
 import { ActivatedRoute } from '@angular/router'
 import { MatTableDataSource, MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow } from '@angular/material/table'
 import { Component, type OnInit, inject, ChangeDetectionStrategy } from '@angular/core'
+import { DecimalPipe } from '@angular/common'
 import { TrackOrderService } from '../Services/track-order.service'
 import { DomSanitizer } from '@angular/platform-browser'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -28,7 +29,7 @@ export enum Status {
   selector: 'app-track-result',
   templateUrl: './track-result.component.html',
   styleUrls: ['./track-result.component.scss'],
-  imports: [MatCardModule, TranslateModule, MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow]
+  imports: [MatCardModule, TranslateModule, MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow, DecimalPipe]
 })
 export class TrackResultComponent implements OnInit {
   private readonly route = inject(ActivatedRoute)
