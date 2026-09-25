@@ -344,7 +344,7 @@
   "CREDIT_CARD_SAVED": "Your card ending with {{cardnumber}} has been saved for your convenience.",
   "CONFIRM_REVIEW_SAVED": "You review has been saved.",
   "CONFIRM_CHANGES_SAVED": "Your changes have been saved.",
-  "CONFIRM_RECYCLING_BOX": "Thank you for using our eco-friendly recycling self-service. We will send you a pomace recycling box asap.",
+  "CONFIRM_RECYCLING_BOX": "Thank you for using our secure shredding service. We will send you a prepaid document shredding box asap.",
   "CONFIRM_RECYCLING_PICKUP": "Thank you for using our secure shredding service. We will pick up your statements on {{pickupdate}}.",
   "CHALLENGE_UNAVAILABLE": "This challenge is unavailable in a {{env}} environment!",
   "CHALLENGE_UNAVAILABLE_SAFETYMODE": "This challenge is unavailable because the application is running in safety mode!",
