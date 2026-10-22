@@ -61,10 +61,10 @@ export const themes = {
     primDark: '#97a621'
   },
   'cibc-red-burgundy': {
-    bgColor: '#FFFFFF',
+    bgColor: '#F2F3F2',
     textColor: '#333333',
-    navColor: '#B43242',
-    primLight: '#C95563',
+    navColor: '#E0E9F6',
+    primLight: '#FFFFFF',
     primDark: '#802741'
   },
   'neon-fire': {
