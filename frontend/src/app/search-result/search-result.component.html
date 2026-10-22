@@ -3,37 +3,47 @@
   ~ SPDX-License-Identifier: MIT
 -->
 
-<main class="container">
-  <section class="hero" aria-label="Quick actions">
+<section class="hero" aria-label="Welcome">
+  <div class="hero-inner">
     <div class="hero-greeting">
-      <span class="hero-hello">Hello, investor</span>
-      <span class="hero-tier">Self-directed &middot; Demo profile</span>
+      <h1 class="hero-hello">Hello, investor</h1>
+      <p class="hero-tier">Self-directed investing and portfolio tracking tailored to your goals. Demo profile.</p>
     </div>
-    <nav class="hero-actions" aria-label="Quick actions">
-      <a routerLink="/basket">
-        <mat-icon>swap_horiz</mat-icon>
-        Transfer funds
-      </a>
-      <a routerLink="/search">
-        <mat-icon>add_chart</mat-icon>
-        Place an order
-      </a>
-      <a routerLink="/order-history">
-        <mat-icon>fact_check</mat-icon>
-        Order status
-      </a>
-      <a routerLink="/score-board">
-        <mat-icon>dashboard</mat-icon>
-        Trading dashboard
-      </a>
-    </nav>
-  </section>
+    <img class="hero-art" src="assets/public/images/CIBC_Hero_Art.svg" alt="">
+  </div>
+</section>
+
+<main class="container">
+  <nav class="hero-actions" aria-label="Quick actions">
+    <a routerLink="/basket">
+      <span class="tile-icon"><mat-icon>swap_horiz</mat-icon></span>
+      <span class="tile-title">Transfer funds <mat-icon>chevron_right</mat-icon></span>
+      <span class="tile-copy">Move cash between your RRSP, TFSA and cash accounts.</span>
+    </a>
+    <a routerLink="/search">
+      <span class="tile-icon"><mat-icon>add_chart</mat-icon></span>
+      <span class="tile-title">Place an order <mat-icon>chevron_right</mat-icon></span>
+      <span class="tile-copy">Build a Trade Ticket for funds, ETFs and GICs.</span>
+    </a>
+    <a routerLink="/order-history">
+      <span class="tile-icon"><mat-icon>fact_check</mat-icon></span>
+      <span class="tile-title">Order status <mat-icon>chevron_right</mat-icon></span>
+      <span class="tile-copy">Review open, filled and cancelled trades.</span>
+    </a>
+    <a routerLink="/score-board">
+      <span class="tile-icon"><mat-icon>dashboard</mat-icon></span>
+      <span class="tile-title">Trading dashboard <mat-icon>chevron_right</mat-icon></span>
+      <span class="tile-copy">Track progress across your investing goals.</span>
+    </a>
+  </nav>
 
   <app-market-ticker></app-market-ticker>
 
-  <div class="dashboard-grid">
-    <app-portfolio-overview></app-portfolio-overview>
-    <app-accounts-panel></app-accounts-panel>
+  <div class="dashboard-band">
+    <div class="dashboard-grid">
+      <app-portfolio-overview></app-portfolio-overview>
+      <app-accounts-panel></app-accounts-panel>
+    </div>
   </div>
 
   <div class="search-results">

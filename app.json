@@ -1,5 +1,5 @@
 {
-  "name": "RBC Portfolio Tracker",
+  "name": "CIBC Portfolio Tracker",
   "description": "Self-directed investing portfolio dashboard for security training",
   "keywords": [
     "web security",
@@ -18,7 +18,7 @@
   ],
   "website": "https://github.com/aaron-cog-gtm-gh-org/investment-portfolio",
   "repository": "https://github.com/aaron-cog-gtm-gh-org/investment-portfolio",
-  "logo": "https://raw.githubusercontent.com/aaron-cog-gtm-gh-org/investment-portfolio/master/frontend/src/assets/public/images/RBCPortfolio_Logo.png",
+  "logo": "https://raw.githubusercontent.com/aaron-cog-gtm-gh-org/investment-portfolio/master/frontend/src/assets/public/images/CIBCPortfolio_Logo.png",
   "engines": {
     "node": "24.x"
   }

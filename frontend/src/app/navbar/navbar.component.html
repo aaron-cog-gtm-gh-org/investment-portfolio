@@ -3,7 +3,24 @@
   ~ SPDX-License-Identifier: MIT
 -->
 
-<mat-toolbar color="primary" class="mat-elevation-z6 navbar-toolbar">
+<mat-toolbar color="primary" class="navbar-toolbar">
+
+  <mat-toolbar-row class="utility-row">
+    <nav class="utility-links hide-lt-sm" aria-label="Corporate links">
+      <a routerLink="/about">About Us</a>
+      <a routerLink="/contact">Contact Us</a>
+      <a routerLink="/order-history">Order Status</a>
+      <a routerLink="/chatbot">Advisor Chat</a>
+    </nav>
+    <button id="navbarLanguageButton" [matMenuTriggerFor]="menu" mat-button class="buttons utility-language"
+      aria-label="Language selection menu"
+      matTooltip="{{ 'LANGUAGE_SEL_HINT' | translate }}" matTooltipPosition="below">
+      <mat-icon>
+        language
+      </mat-icon>
+      <span> {{shortKeyLang}} </span>
+    </button>
+  </mat-toolbar-row>
 
   <mat-toolbar-row class="navbar-row">
 
@@ -26,12 +43,19 @@
     </div>
 
     <div class="navbar-actions">
-      <button [matMenuTriggerFor]="userMenu" mat-button class="buttons hide-lt-md nav-button nav-account-button"
+      <a mat-icon-button routerLink="/contact" class="nav-icon-button hide-lt-md" aria-label="Contact us"
+        matTooltip="Contact us" matTooltipPosition="below">
+        <mat-icon>place</mat-icon>
+      </a>
+      <a mat-icon-button routerLink="/chatbot" class="nav-icon-button hide-lt-md" aria-label="Get help"
+        matTooltip="Get help" matTooltipPosition="below">
+        <mat-icon>help_outline</mat-icon>
+      </a>
+
+      <button [matMenuTriggerFor]="userMenu" mat-flat-button class="buttons hide-lt-md nav-account-button"
         aria-label="Show/hide account menu" id="navbarAccount">
-        <mat-icon>
-          account_circle
-        </mat-icon>
-        <span> {{"ACCOUNT" | translate}} </span>
+        <span> {{ isLoggedIn() ? ("ACCOUNT" | translate) : "Sign on" }} </span>
+        <mat-icon iconPositionEnd>expand_more</mat-icon>
       </button>
 
     <mat-menu #userMenu="matMenu">
@@ -100,22 +124,20 @@
       }
     </mat-menu>
 
-    <button mat-button routerLink="/basket" class="buttons nav-button"
+    @if (!isLoggedIn()) {
+      <div class="enrol-prompt hide-lt-md">
+        <span>Not enrolled yet?</span>
+        <a routerLink="/register">Register now</a>
+      </div>
+    }
+
+    <button mat-button routerLink="/basket" class="buttons nav-button nav-basket-button"
       aria-label="Show the shopping cart">
       <mat-icon>
         shopping_cart
       </mat-icon>
       <span class="hide-lt-md basket-label"> {{"TITLE_BASKET" | translate}}</span>
       <span class="fa-layers-counter fa-layers-top-right fa-3x warn-notification">{{itemTotal}}</span>
-    </button>
-
-    <button id="navbarLanguageButton" [matMenuTriggerFor]="menu" mat-button class="buttons nav-square-button"
-      aria-label="Language selection menu"
-      matTooltip="{{ 'LANGUAGE_SEL_HINT' | translate }}" matTooltipPosition="below">
-      <mat-icon>
-        language
-      </mat-icon>
-      <span class="hide-lt-md"> {{shortKeyLang}} </span>
     </button>
 
     <mat-menu #menu="matMenu" [overlapTrigger]="true">

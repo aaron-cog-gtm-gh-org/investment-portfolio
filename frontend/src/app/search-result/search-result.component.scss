@@ -13,61 +13,109 @@
 }
 
 .hero {
+  margin-top: -$space-l;
+  margin-bottom: $space-xl;
+  background: var(--cibc-red, #b43242);
+  color: #fff;
+}
+
+.hero-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: $space-m;
-  margin-bottom: $space-s;
-  padding: $space-m $space-ml;
-  border-radius: 8px;
-  background: linear-gradient(105deg, #003168 0%, #005daa 55%, #1e6fba 100%);
-  color: #fff;
+  gap: $space-l;
+  width: 80%;
+  min-height: 280px;
+  margin: 0 auto;
 }
 
 .hero-greeting {
   display: flex;
   flex-direction: column;
+  max-width: 560px;
 }
 
 .hero-hello {
-  font-size: 24px;
-  font-weight: 300;
+  margin: 0;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.15;
 }
 
 .hero-tier {
-  font-size: 12px;
-  color: var(--rbc-gold, #fedf01);
+  margin: $space-s 0 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.hero-art {
+  width: 360px;
+  max-width: 40%;
+  height: auto;
 }
 
 .hero-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: $space-l;
+  margin-bottom: $space-xl;
 
   a {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: $space-2xs;
-    padding: $space-2xs $space-m;
-    border-left: 1px solid rgb(255 255 255 / 25%);
-    font-size: 13px;
-    color: #fff;
+    gap: $space-xs;
+    text-align: center;
+    color: var(--cibc-ink, #333);
     text-decoration: none;
   }
 
-  a:first-child {
-    border-left: 0;
+  a:hover .tile-title {
+    text-decoration: underline;
   }
+}
 
-  a:hover {
-    color: var(--rbc-gold, #fedf01);
-  }
+.tile-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--cibc-mist, #f2f3f2);
+  color: var(--cibc-red, #b43242);
 
   mat-icon {
-    font-size: 20px;
-    width: 20px;
-    height: 20px;
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
   }
+}
+
+.tile-title {
+  display: inline-flex;
+  align-items: center;
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--cibc-burgundy, #802741);
+
+  mat-icon {
+    font-size: 22px;
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.tile-copy {
+  max-width: 240px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.dashboard-band {
+  margin: 0 -12.5% $space-l;
+  padding: $space-l 12.5%;
+  background: var(--cibc-sky, #e0e9f6);
 }
 
 .dashboard-grid {
@@ -75,12 +123,19 @@
   grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
   align-items: start;
   gap: $space-m;
-  margin-bottom: $space-m;
 }
 
 @media (max-width: 959.98px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-art {
+    display: none;
   }
 }
 
@@ -98,8 +153,8 @@
   grid-template-columns: var(--investments-columns);
   column-gap: $space-m;
   padding: $space-xs $space-m;
-  background-color: #f2f4f7;
-  color: rgb(0 0 0 / 60%);
+  background-color: var(--cibc-mist, #f2f3f2);
+  color: var(--cibc-ink, #333);
   font-size: 12px;
   font-weight: 600;
 
@@ -129,7 +184,7 @@
   gap: $space-xs;
   padding: 0 0 $space-2xs;
   margin-bottom: $space-m;
-  border-bottom: 2px solid var(--rbc-gold, #fedf01);
+  border-bottom: 1px solid var(--cibc-rule, #dcdcdc);
   box-shadow: none;
   font-weight: 400;
 }
@@ -167,9 +222,23 @@ app-product {
 
 
 @media (max-width: 580px) {
-  .hero {
-    align-items: flex-start;
-    flex-direction: column;
+  .hero-inner {
+    width: auto;
+    min-height: 200px;
+    margin: 0 $space-m;
+  }
+
+  .hero-hello {
+    font-size: 34px;
+  }
+
+  .hero-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-band {
+    margin: 0 (-$space-m) $space-l;
+    padding: $space-m;
   }
 
   .container {

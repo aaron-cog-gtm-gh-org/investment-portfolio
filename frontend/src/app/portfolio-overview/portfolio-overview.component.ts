@@ -17,10 +17,10 @@ interface AssetSlice {
 const CIRCUMFERENCE = 2 * Math.PI * 70
 
 const ALLOCATION: Omit<AssetSlice, 'dashArray' | 'dashOffset'>[] = [
-  { label: 'Equities', percentage: 46, color: '#005daa' },
-  { label: 'Fixed income', percentage: 27, color: '#1e6fba' },
-  { label: 'GICs & cash', percentage: 18, color: '#fedf01' },
-  { label: 'Alternatives', percentage: 9, color: '#7fb2dd' }
+  { label: 'Equities', percentage: 46, color: '#b43242' },
+  { label: 'Fixed income', percentage: 27, color: '#802741' },
+  { label: 'GICs & cash', percentage: 18, color: '#e0e9f6' },
+  { label: 'Alternatives', percentage: 9, color: '#8c8c8c' }
 ]
 
 @Component({

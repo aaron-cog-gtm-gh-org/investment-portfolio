@@ -22,42 +22,84 @@ mat-toolbar {
   display: flex;
   flex-direction: column;
   background: #fff;
-  color: #1a1a1a;
+  color: var(--cibc-ink, #333);
+  box-shadow: none;
+}
+
+.utility-row {
+  justify-content: space-between;
+  min-height: 2.5rem;
+  height: 2.5rem;
+  padding: 0 10%;
+  background: var(--cibc-burgundy, #802741);
+  color: #fff;
+}
+
+.utility-links {
+  display: flex;
+  gap: $space-l;
+
+  a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.utility-language {
+  height: 2.5rem;
+  margin-left: auto;
+  color: #fff !important;
+  font-size: 14px;
+
+  mat-icon {
+    margin-right: $space-2xs;
+  }
 }
 
 .navbar-row {
   align-items: center;
   display: grid;
   grid-template-columns: auto auto 1fr auto;
-  padding-top: $space-2xs;
-  padding-bottom: $space-2xs;
-  color: #1a1a1a;
+  min-height: 6rem;
+  padding: $space-xs 10%;
+  color: var(--cibc-ink, #333);
 }
 
 .subnav-row {
-  background: var(--rbc-blue, #005daa);
-  min-height: 2.75rem;
+  justify-content: center;
+  min-height: 3.5rem;
   padding: 0 $space-s;
+  border-top: 1px solid var(--cibc-rule, #dcdcdc);
+  border-bottom: 1px solid var(--cibc-rule, #dcdcdc);
+  background: #fff;
 }
 
 .subnav {
   display: flex;
   flex-wrap: nowrap;
-  gap: $space-2xs;
+  justify-content: center;
+  gap: $space-xl;
   overflow-x: auto;
   scrollbar-width: none;
 }
 
 .subnav-link {
-  font-size: 14px;
-  font-weight: 500;
+  height: 3.5rem;
+  font-size: 17px;
+  font-weight: 400;
   border-bottom: 3px solid transparent;
   border-radius: 0;
-  color: #fff !important;
+  color: var(--cibc-ink, #333) !important;
 
   &:hover,
   &.active {
-    border-bottom-color: var(--rbc-gold, #fedf01);
+    border-bottom-color: var(--cibc-red, #b43242);
   }
 }
 
@@ -70,10 +112,10 @@ mat-toolbar {
 }
 
 #navbarLanguageButton mat-icon {
-  font-size: 24px;
-  height: 26px;
-  margin-right: $space-3xs;
-  width: 26px;
+  font-size: 20px;
+  height: 20px;
+  margin-right: $space-2xs;
+  width: 20px;
 }
 
 mat-toolbar {
@@ -92,7 +134,7 @@ mat-toolbar {
 }
 
 .logo {
-  max-height: 44px;
+  max-height: 40px;
   width: auto;
 }
 
@@ -170,20 +212,58 @@ app-mat-search-bar {
 }
 
 .nav-home-button {
-  height: 3.5rem;
+  height: 4rem;
   padding-left: $space-2xs;
 }
 
+.nav-icon-button {
+  color: var(--cibc-red, #b43242) !important;
+
+  mat-icon {
+    font-size: 28px;
+    height: 28px;
+    width: 28px;
+  }
+}
+
 .nav-account-button {
+  height: 3rem;
+  margin-left: $space-m;
+  padding: 0 $space-m;
+  border-radius: 4px;
+  background-color: var(--cibc-red, #b43242) !important;
+  color: #fff !important;
+  font-size: 17px;
+  font-weight: 500;
   vertical-align: middle;
+
+  &:hover {
+    background-color: var(--cibc-red-dark, #8f2233) !important;
+  }
+}
+
+.enrol-prompt {
+  display: flex;
+  flex-direction: column;
+  margin: 0 $space-m 0 $space-s;
+  font-size: 15px;
+  line-height: 1.4;
+  white-space: nowrap;
+
+  a {
+    color: var(--cibc-ink, #333);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 }
 
 .app-name {
-  font-size: 19px;
-  font-weight: 600;
-  color: var(--rbc-navy, #003168);
-  letter-spacing: -0.01em;
-  margin-left: $space-2xs;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--cibc-ink, #333);
+  margin-left: $space-s;
+  padding-left: $space-s;
+  border-left: 1px solid var(--cibc-rule, #dcdcdc);
 }
 
 .basket-label {
@@ -213,10 +293,20 @@ app-mat-search-bar {
 }
 
 .navbar-actions .mat-mdc-button {
-  color: var(--rbc-navy, #003168);
+  color: var(--cibc-ink, #333);
+}
+
+.navbar-actions app-mat-search-bar {
+  color: var(--cibc-red, #b43242);
 }
 
 @media screen and (max-width: 959px) {
+  .utility-row,
+  .navbar-row {
+    padding-left: $space-s;
+    padding-right: $space-s;
+  }
+
   .buttons {
     width: 48px;
   }
@@ -224,6 +314,16 @@ app-mat-search-bar {
   .warn-notification {
     left: -60px;
     position: absolute;
+  }
+
+  .nav-home-button {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 599.98px) {
+  .logo {
+    max-height: 28px;
   }
 }
 

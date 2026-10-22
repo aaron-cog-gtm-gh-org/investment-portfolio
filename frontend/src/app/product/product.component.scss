@@ -129,7 +129,7 @@
 }
 
 .investment-row:hover {
-  background-color: rgb(0 93 170 / 4%);
+  background-color: rgb(180 50 66 / 4%);
 }
 
 .cell {
@@ -140,7 +140,7 @@
 .symbol {
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: var(--rbc-navy, #003168);
+  color: var(--cibc-burgundy, #802741);
 }
 
 .investment {
@@ -156,7 +156,7 @@
   font: inherit;
   font-weight: 600;
   text-align: left;
-  color: var(--rbc-blue, #005daa);
+  color: var(--cibc-red, #b43242);
   cursor: pointer;
 }
 
