@@ -1,6 +1,6 @@
 application:
-  logo: RBCPortfolio_Logo.png
-  favicon: favicon_rbc.ico
+  logo: CIBCPortfolio_Logo.png
+  favicon: favicon_cibc.ico
   showVersionNumber: false
   showGitHubLinks: false
   localBackupEnabled: false

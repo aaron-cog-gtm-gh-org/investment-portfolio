@@ -20,7 +20,7 @@
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: var(--rbc-blue, #005daa);
+  color: var(--cibc-red, #b43242);
 }
 
 .ticker-track {
@@ -46,7 +46,7 @@
 
 .symbol {
   font-weight: 600;
-  color: var(--rbc-blue, #005daa);
+  color: var(--cibc-red, #b43242);
 }
 
 .last {
@@ -57,11 +57,11 @@
   font-weight: 600;
 
   &.up {
-    color: var(--rbc-gain, #0f7b4f);
+    color: var(--cibc-gain, #0f7b4f);
   }
 
   &.down {
-    color: var(--rbc-loss, #c0392b);
+    color: var(--cibc-loss, #c0392b);
   }
 }
 

@@ -4,10 +4,10 @@ server:
   baseUrl: 'http://localhost:3000' # used for CSAF, e.g. https://example.com
 application:
   domain: portfolio-tracker.example # for pre-loaded email users
-  name: 'RBC Portfolio Tracker'
-  logo: RBCPortfolio_Logo.png
-  favicon: favicon_rbc.ico
-  theme: rbc-blue-gold       # Options: bluegrey-lightgreen blue-lightblue deeppurple-amber indigo-pink pink-bluegrey purple-green deeporange-indigo lime-green neon-fire rbc-blue-gold
+  name: 'CIBC Portfolio Tracker'
+  logo: CIBCPortfolio_Logo.png
+  favicon: favicon_cibc.ico
+  theme: cibc-red-burgundy       # Options: bluegrey-lightgreen blue-lightblue deeppurple-amber indigo-pink pink-bluegrey purple-green deeporange-indigo lime-green neon-fire cibc-red-burgundy
   showVersionNumber: true
   showGitHubLinks: false
   localBackupEnabled: true
@@ -17,7 +17,7 @@ application:
   customMetricsPrefix: portfoliotracker
   chatBot:
     name: 'Ava the Virtual Advisor'
-    avatar: 'RBCAdvisorBot.png'
+    avatar: 'CIBCAdvisorBot.png'
     model: 'gemma4:e4b'
     llmApiUrl: 'http://localhost:11434/v1'
     llmMaxRetries: 2
@@ -43,7 +43,7 @@ application:
   welcomeBanner:
     showOnFirstStart: true
     title: 'Welcome to your Portfolio Overview'
-    message: "<p><img src='assets/public/images/RBC_Welcome_Banner.png' alt='Portfolio Tracker' style='width:100%;border-radius:6px;margin-bottom:12px;'/></p><p>Track your combined balance, asset mix and holdings across your <strong>RRSP</strong>, <strong>TFSA</strong> and <strong>Cash</strong> accounts, then build a <strong>Trade Ticket</strong> to place your next order.</p><p><em>Demo interface with mock data. Not affiliated with Royal Bank of Canada. Balances, quotes and holdings shown in this application are fictional and must not be used for investment decisions.</em></p>"
+    message: "<p><img src='assets/public/images/CIBC_Welcome_Banner.png' alt='Portfolio Tracker' style='width:100%;border-radius:6px;margin-bottom:12px;'/></p><p>Track your combined balance, asset mix and holdings across your <strong>RRSP</strong>, <strong>TFSA</strong> and <strong>Cash</strong> accounts, then build a <strong>Trade Ticket</strong> to place your next order.</p><p><em>Demo interface with mock data. Not affiliated with Canadian Imperial Bank of Commerce. Balances, quotes and holdings shown in this application are fictional and must not be used for investment decisions.</em></p>"
   cookieConsent:
     message: 'This demo uses cookies to keep your session and watchlist preferences.'
     dismissText: 'Got it'
@@ -95,7 +95,7 @@ challenges:
   - 'otelcol'
 hackingInstructor:
   isEnabled: false
-  avatarImage: RBCAdvisorBot.png
+  avatarImage: CIBCAdvisorBot.png
   hintPlaybackSpeed: normal # Options: faster fast normal slow slower
 products:
 - name: 'Canadian Equity Index Fund (CDEQ)'

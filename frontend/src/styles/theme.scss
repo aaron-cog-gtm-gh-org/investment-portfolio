@@ -127,22 +127,24 @@ $lime-green-theme: mat.define-theme($lime-green-config);
   background-color: var(--mat-sys-surface);
 }
 
-$rbc-blue-gold-config: (
+$cibc-red-burgundy-config: (
   color: (
     theme-type: light,
-    primary: mat.$blue-palette,
-    tertiary: mat.$yellow-palette,
+    primary: mat.$red-palette,
+    tertiary: mat.$red-palette,
   )
 );
-$rbc-blue-gold-theme: mat.define-theme($rbc-blue-gold-config);
+$cibc-red-burgundy-theme: mat.define-theme($cibc-red-burgundy-config);
 
-.rbc-blue-gold-theme {
-  @include mat.theme($rbc-blue-gold-config);
+.cibc-red-burgundy-theme {
+  @include mat.theme($cibc-red-burgundy-config);
 
-  --mat-sys-surface: #eef1f5;
-  --mat-sys-background: #eef1f5;
-  --mat-sys-on-surface: #1a1a1a;
-  --mat-sys-on-background: #1a1a1a;
+  --mat-sys-surface: #fff;
+  --mat-sys-background: #fff;
+  --mat-sys-on-surface: #333;
+  --mat-sys-on-background: #333;
+  --mat-sys-tertiary: #802741;
+  --mat-sys-on-tertiary: #fff;
 
   color: var(--mat-sys-on-surface);
   background-color: var(--mat-sys-surface);
